@@ -9,18 +9,17 @@ namespace Combat_and_Catacombs {
 
             while (!quitting) {
                 string input = Console.ReadLine();
-                switch (input)
-                {
+                switch (input) {
                     case "N":
-                        if (playerpos[0] != 0)
-                        {
+                        if (playerpos[0] != 0) {
                             playerpos[0] -= 1;
                         }
+                        break;
                     case "S":
-                        if (playerpos[0] != 9)
-                        {
+                        if (playerpos[0] != 9) {
                             playerpos[0] += 1;
                         }
+                        break;
                 }
                 quitting = CommandParser.Parse(input);
             }
