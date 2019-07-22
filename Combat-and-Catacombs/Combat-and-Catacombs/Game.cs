@@ -1,42 +1,38 @@
-﻿using System;
+using System;
 using System.Threading;
 
 namespace Combat_and_Catacombs {
     class Game {
         static void Main(string[] args) {
             bool quitting = false;
-            int[] playerpos = {4,4};
+            Vector2 playerpos = new Vector2(4,4);
 
             while (!quitting) {
-                string input = Console.ReadLine();
-                switch (input)
-                {
-                    case "N":
-                        if (playerpos[0] != 0)
-                        {
-                            playerpos[0] -= 1;
+                string input = Console.ReadLine().ToLower();
+                switch (input) {
+                    case "n":
+                        if (playerpos.y != 0) {
+                            playerpos.y--;
                         }
                         break;
-                    case "S":
-                        if (playerpos[0] != 9)
-                        {
-                            playerpos[0] += 1;
+                    case "s":
+                        if (playerpos.y != 9) {
+                            playerpos.y++;
                         }
                         break;
-                    case "E":
-                        if (playerpos[1] != 9)
-                        {
-                            playerpos[1] += 1;
+                    case "a":
+                        if(playerpos.x != 0) {
+                            playerpos.x--;
                         }
                         break;
-                    case "W":
-                        if (playerpos[1] != 0)
-                        {
-                            playerpos[1] -= 1;
+                    case "d":
+                        if (playerpos.x != 9) {
+                            playerpos.x++;
                         }
                         break;
                 }
-                Console.WriteLine($"{playerpos[0]},{playerpos[1]}");
+                Console.WriteLine(playerpos);
+
                 quitting = CommandParser.Parse(input);
             }
             Console.WriteLine("Quitting...");
