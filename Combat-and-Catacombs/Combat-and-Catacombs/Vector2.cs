@@ -21,6 +21,9 @@ namespace Combat_and_Catacombs {
         public override int GetHashCode() {
             return (x.ToString() + "/" + y.ToString()).GetHashCode();
         }
+        public override string ToString() {
+            return "{ " + x + " , " + y + " }";
+        }
         #endregion
 
         #region Operators
