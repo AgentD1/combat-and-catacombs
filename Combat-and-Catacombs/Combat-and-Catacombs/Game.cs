@@ -10,22 +10,26 @@ namespace Combat_and_Catacombs {
             while (!quitting) {
                 string input = Console.ReadLine().ToLower();
                 switch (input) {
+                    case "i":
                     case "n":
                         if (playerpos.y != 0) {
                             playerpos.y--;
                         }
                         break;
+                    case "k":
                     case "s":
                         if (playerpos.y != 9) {
                             playerpos.y++;
                         }
                         break;
-                    case "a":
+                    case "j":
+                    case "w":
                         if(playerpos.x != 0) {
                             playerpos.x--;
                         }
                         break;
-                    case "d":
+                    case "l":
+                    case "e":
                         if (playerpos.x != 9) {
                             playerpos.x++;
                         }
