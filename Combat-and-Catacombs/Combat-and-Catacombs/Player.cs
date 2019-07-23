@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Combat_and_Catacombs {
-    public class Room {
-        public char mapRenderChar = 'O';
+    public class Player {
+        public Vector2 roomPosition;
     }
 }

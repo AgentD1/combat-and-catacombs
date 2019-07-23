@@ -2,47 +2,50 @@ using System;
 using System.Threading;
 
 namespace Combat_and_Catacombs {
-    class Game {
+    static class Game {
+        public static Player p;
         static void Main(string[] args) {
+            p = new Player() {
+                roomPosition = new Vector2(5, 5)
+            };
             bool quitting = false;
-            Vector2 playerpos = new Vector2(5,5);
             bool displaypos;
 
             while (!quitting) {
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 displaypos = true;
+                MapDrawer.PrintMap();
                 switch (input) {
                     case "i":
                     case "n":
-                        if (playerpos.y != 1) {
-                            playerpos.y--;
+                        if (p.roomPosition.y != 1) {
+                            p.roomPosition.y--;
                         }
                         break;
                     case "k":
                     case "s":
-                        if (playerpos.y != MapDrawer.MAP_HEIGHT) {
-                            playerpos.y++;
+                        if (p.roomPosition.y != MapDrawer.MAP_HEIGHT) {
+                            p.roomPosition.y++;
                         }
                         break;
                     case "j":
                     case "w":
-                        if(playerpos.x != 1) {
-                            playerpos.x--;
+                        if(p.roomPosition.x != 1) {
+                            p.roomPosition.x--;
                         }
                         break;
                     case "l":
                     case "e":
-                        if (playerpos.x != MapDrawer.MAP_WIDTH) {
-                            playerpos.x++;
+                        if (p.roomPosition.x != MapDrawer.MAP_WIDTH) {
+                            p.roomPosition.x++;
                         }
                         break;
                     default:
                         displaypos = false;
                         break;
                 }
-                if (displaypos) {Console.WriteLine(playerpos);}
-                    
-
+                if (displaypos) {Console.WriteLine(p.roomPosition);}
+                
                 quitting = CommandParser.Parse(input);
             }
             Console.WriteLine("Quitting...");
