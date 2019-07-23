@@ -8,7 +8,7 @@ namespace Combat_and_Catacombs {
             Vector2 playerpos = new Vector2(4,4);
 
             while (!quitting) {
-                string input = Console.ReadLine().ToLower();
+                string input = Console.ReadKey(true).Key.ToString().ToLower();
                 switch (input) {
                     case "i":
                     case "n":
