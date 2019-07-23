@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Combat_and_Catacombs {
     public static class MapDrawer {
-        public const int MAP_WIDTH = 8;
-        public const int MAP_HEIGHT = 8;
+        public const int MAP_WIDTH = 9;
+        public const int MAP_HEIGHT = 9;
 
         public static Room[,] rooms = new Room[MAP_WIDTH, MAP_HEIGHT];
 
