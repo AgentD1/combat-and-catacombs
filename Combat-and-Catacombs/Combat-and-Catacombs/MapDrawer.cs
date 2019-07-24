@@ -19,5 +19,14 @@ namespace Combat_and_Catacombs {
                 }
             }
         }
+
+        public static void PrintMap() {
+            for (int x = 0; x < MAP_WIDTH; x++) {
+                for (int y = 0; y < MAP_HEIGHT; y++) {
+                    Console.Write(rooms[x, y].mapRenderChar);
+                }
+                Console.Write("\n");
+            }
+        }
     }
 }

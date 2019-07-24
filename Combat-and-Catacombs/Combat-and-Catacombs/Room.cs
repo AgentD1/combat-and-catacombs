@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Combat_and_Catacombs {
     public abstract class Room {
-        public char mapRenderChar = '▦';
+        public char mapRenderChar = 'O';
         //public string name;
         public Room() //string name)
         {
