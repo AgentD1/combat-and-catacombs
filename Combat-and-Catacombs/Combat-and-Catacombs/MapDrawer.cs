@@ -12,9 +12,10 @@ namespace Combat_and_Catacombs {
         public static Room[,] rooms = new Room[MAP_WIDTH, MAP_HEIGHT];
 
         static MapDrawer() {
+            Random rand = new Random();
             for (int x = 0; x < MAP_WIDTH; x++) {
                 for (int y = 0; y < MAP_HEIGHT; y++) {
-                    rooms[x, y] = new Room();
+                    rooms[x, y] = RoomFactory.GetRoom();
                 }
             }
         }

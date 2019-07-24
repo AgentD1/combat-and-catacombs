@@ -40,8 +40,11 @@ namespace Combat_and_Catacombs {
                         displaypos = false;
                         break;
                 }
-                if (displaypos) {Console.WriteLine(playerpos);}
-                    
+                if (displaypos) {
+                    Console.WriteLine(playerpos);
+                    Console.WriteLine(MapDrawer.rooms[playerpos.x - 1, playerpos.y - 1].givename());
+                    Console.WriteLine(MapDrawer.rooms[playerpos.x - 1, playerpos.y - 1].describe());
+                }
 
                 quitting = CommandParser.Parse(input);
             }
