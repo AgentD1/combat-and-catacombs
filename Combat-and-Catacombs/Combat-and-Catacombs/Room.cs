@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public abstract class Room {
         public char mapRenderChar = 'O';
-        //public string name;
-        public Room() //string name)
-        {
-            //this.name = name;
-        }
-
+        public Room() {}
         public abstract string givename();
         public abstract string describe();
+        public abstract char renderChar();
     }
 
     public class Throneroom : Room
@@ -32,6 +28,10 @@ namespace Combat_and_Catacombs {
         {
             return "A dazzling, massive hall full of riches";
         }
+        public override char renderChar()
+        {
+            return 'T';
+        }
     }
     public class Graveyard : Room
     {
@@ -46,6 +46,10 @@ namespace Combat_and_Catacombs {
         public override string describe()
         {
             return "A room packed with Graves. Its too quiet...";
+        }
+        public override char renderChar()
+        {
+            return 'G';
         }
     }
     public class Kitchen : Room
@@ -63,6 +67,10 @@ namespace Combat_and_Catacombs {
         {
             return "A room full of delicious food! And monsters, of course";
         }
+        public override char renderChar()
+        {
+            return 'K';
+        }
     }
     public class Bathroom : Room
     {
@@ -78,6 +86,10 @@ namespace Combat_and_Catacombs {
         public override string describe()
         {
             return "A simple Bathroom";
+        }
+        public override char renderChar()
+        {
+            return 'B';
         }
     }
 

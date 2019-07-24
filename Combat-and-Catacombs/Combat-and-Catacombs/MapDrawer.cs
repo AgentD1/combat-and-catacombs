@@ -20,10 +20,16 @@ namespace Combat_and_Catacombs {
             }
         }
 
-        public static void PrintMap() {
-            for (int x = 0; x < MAP_WIDTH; x++) {
-                for (int y = 0; y < MAP_HEIGHT; y++) {
-                    Console.Write(rooms[x, y].mapRenderChar);
+        public static void PrintMap(Vector2 playerpos) {
+            for (int y = 0; y < MAP_HEIGHT; y++)
+            {
+                for (int x = 0; x < MAP_WIDTH; x++)
+                {
+                    if (x == playerpos.x - 1 && y == playerpos.y - 1) {
+                        Console.Write($"({rooms[x, y].renderChar()})");
+                    } else                     {
+                        Console.Write($" {rooms[x, y].renderChar()} ");
+                    }
                 }
                 Console.Write("\n");
             }

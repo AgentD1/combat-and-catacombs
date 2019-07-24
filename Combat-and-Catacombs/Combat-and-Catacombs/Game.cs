@@ -14,7 +14,6 @@ namespace Combat_and_Catacombs {
             while (!quitting) {
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 displaypos = true;
-                MapDrawer.PrintMap();
                 switch (input) {
                     case "i":
                     case "n":
@@ -45,9 +44,11 @@ namespace Combat_and_Catacombs {
                         break;
                 }
                 if (displaypos) {
+                    MapDrawer.PrintMap(p.roomPosition);
                     Console.WriteLine(p.roomPosition);
                     Console.WriteLine(MapDrawer.rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
                     Console.WriteLine(MapDrawer.rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
+                    Console.WriteLine();
                 }
                 
                 quitting = CommandParser.Parse(input);
