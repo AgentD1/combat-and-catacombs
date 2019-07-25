@@ -8,14 +8,20 @@ namespace Combat_and_Catacombs {
     public static class MapDrawer {
         public const int MAP_WIDTH = 9;
         public const int MAP_HEIGHT = 9;
+        public const int AREAS = 9;
 
-        public static Room[,] rooms = new Room[MAP_WIDTH, MAP_HEIGHT];
+        public static Room[,,] rooms = new Room[AREAS,MAP_WIDTH, MAP_HEIGHT];
 
         static MapDrawer() {
             Random rand = new Random();
-            for (int x = 0; x < MAP_WIDTH; x++) {
-                for (int y = 0; y < MAP_HEIGHT; y++) {
-                    rooms[x, y] = RoomFactory.GetRoom();
+            for (int a = 0; a < AREAS; a++)
+            {
+                for (int x = 0; x < MAP_WIDTH; x++)
+                {
+                    for (int y = 0; y < MAP_HEIGHT; y++)
+                    {
+                        rooms[a, x, y] = RoomFactory.GetRoom();
+                    }
                 }
             }
         }
@@ -26,9 +32,9 @@ namespace Combat_and_Catacombs {
                 for (int x = 0; x < MAP_WIDTH; x++)
                 {
                     if (x == playerpos.x - 1 && y == playerpos.y - 1) {
-                        Console.Write($"({rooms[x, y].renderChar()})");
+                        Console.Write($"({rooms[Game.p.areaPosition - 1, x, y].renderChar()})");
                     } else                     {
-                        Console.Write($" {rooms[x, y].renderChar()} ");
+                        Console.Write($" {rooms[Game.p.areaPosition - 1, x, y].renderChar()} ");
                     }
                 }
                 Console.Write("\n");

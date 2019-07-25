@@ -33,19 +33,19 @@ namespace Combat_and_Catacombs {
             return 'T';
         }
     }
-    public class Graveyard : Room
+    public class BurialMound : Room
     {
         public string name;
-        public Graveyard() : base()
+        public BurialMound() : base()
         {
-            this.name = "Graveyard";
+            this.name = "Burial Mound";
         }
         public override string givename() {
             return name;
         }
         public override string describe()
         {
-            return "A room packed with Graves. Its too quiet...";
+            return "You enter a room filled with earthern mounds, and the stench of the dead. It's too quiet in here...";
         }
         public override char renderChar()
         {
@@ -106,7 +106,7 @@ namespace Combat_and_Catacombs {
                 case 1:
                     return new Bathroom();
                 case 2:
-                    return new Graveyard();
+                    return new BurialMound();
                 default:
                     return new Kitchen();
             }

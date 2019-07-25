@@ -6,7 +6,8 @@ namespace Combat_and_Catacombs {
         public static Player p;
         static void Main(string[] args) {
             p = new Player() {
-                roomPosition = new Vector2(5, 5)
+                roomPosition = new Vector2(5, 5),
+                areaPosition = 1
             };
             bool quitting = false;
             bool displaypos;
@@ -39,15 +40,27 @@ namespace Combat_and_Catacombs {
                             p.roomPosition.x++;
                         }
                         break;
+                    case "q":
+                        if (p.areaPosition != MapDrawer.AREAS)
+                        {
+                            p.areaPosition += 1;
+                        }
+                        break;
+                    case "a":
+                        if (p.areaPosition != 1)
+                        {
+                            p.areaPosition -= 1;
+                        }
+                        break;
                     default:
                         displaypos = false;
                         break;
                 }
                 if (displaypos) {
                     MapDrawer.PrintMap(p.roomPosition);
-                    Console.WriteLine(p.roomPosition);
-                    Console.WriteLine(MapDrawer.rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
-                    Console.WriteLine(MapDrawer.rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
+                    Console.WriteLine(p.areaPosition.ToString(),p.roomPosition);
+                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
+                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
                     Console.WriteLine();
                 }
                 

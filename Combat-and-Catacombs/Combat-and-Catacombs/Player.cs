@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public class Player {
         public Vector2 roomPosition;
+        public int areaPosition;
     }
 }
