@@ -20,7 +20,7 @@ namespace Combat_and_Catacombs {
                 {
                     for (int y = 0; y < MAP_HEIGHT; y++)
                     {
-                        rooms[a, x, y] = RoomFactory.GetRoom();
+                        rooms[a, x, y] = RoomFactory.GetRoom(a);
                     }
                 }
             }

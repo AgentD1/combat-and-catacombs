@@ -13,12 +13,13 @@ namespace Combat_and_Catacombs {
         public abstract char renderChar();
     }
 
-    public class Throneroom : Room
+    #region Area1
+    public class OldCellar : Room
     {
         public string name;
-        public Throneroom() : base()
+        public OldCellar() : base()
         {
-            this.name = "Throneroom";
+            this.name = "Old Cellar";
         }
         public override string givename()
         {
@@ -26,13 +27,76 @@ namespace Combat_and_Catacombs {
         }
         public override string describe()
         {
-            return "A dazzling, massive hall full of riches";
+            return "You enter an aged, decrepit cellar";
         }
         public override char renderChar()
         {
-            return 'T';
+            return 'C';
         }
     }
+
+    public class HermitShack : Room
+    {
+        public string name;
+        public HermitShack() : base()
+        {
+            this.name = "Hermit Shack";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter an empty hut that has recently been inhabited. It feels like you are being watched...";
+        }
+        public override char renderChar()
+        {
+            return 'H';
+        }
+    }
+
+    public class Overgrowth : Room
+    {
+        public string name;
+        public Overgrowth() : base()
+        {
+            this.name = "Overgrowth";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter an unrecognizably overgrown room";
+        }
+        public override char renderChar()
+        {
+            return 'O';
+        }
+    }
+    public class SmallCave : Room
+    {
+        public string name;
+        public SmallCave() : base()
+        {
+            this.name = "Small Cave";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a cramped and narrow cave";
+        }
+        public override char renderChar()
+        {
+            return '.';
+        }
+    }
+
     public class BurialMound : Room
     {
         public string name;
@@ -40,7 +104,8 @@ namespace Combat_and_Catacombs {
         {
             this.name = "Burial Mound";
         }
-        public override string givename() {
+        public override string givename()
+        {
             return name;
         }
         public override string describe()
@@ -50,6 +115,175 @@ namespace Combat_and_Catacombs {
         public override char renderChar()
         {
             return 'G';
+        }
+    }
+
+    public class LargeAbandondedCrossroads : Room
+    {
+        public string name;
+        public LargeAbandondedCrossroads() : base()
+        {
+            this.name = "Large Abandonded Crossroads";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You arrive at the meeting point of many winding paths, going out in every direction";
+        }
+        public override char renderChar()
+        {
+            return '<';
+        }
+    }
+
+    public class PillagedBarracks : Room
+    {
+        public string name;
+        public PillagedBarracks() : base()
+        {
+            this.name = "Pillaged Barracks";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter what seems to have once been a well maintained barracks, but little remains of it now";
+        }
+        public override char renderChar()
+        {
+            return 'B';
+        }
+    }
+    public class FloodedRoom : Room
+    {
+        public string name;
+        public FloodedRoom() : base()
+        {
+            this.name = "Flooded Room";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a enter a flooded room, submerging yourself up to your chest. Better hope there are no sharks down here...";
+        }
+        public override char renderChar()
+        {
+            return 'F';
+        }
+    }
+
+    public class GrassyEnclosure : Room
+    {
+        public string name;
+        public GrassyEnclosure() : base()
+        {
+            this.name = "Grassy Enclosure";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a quiet and peaceful room filled with long grass and shroobberries. It's too bad there's some ugly monster ruining the view";
+        }
+        public override char renderChar()
+        {
+            return 'E';
+        }
+    }
+
+    public class RansackedLibrary : Room
+    {
+        public string name;
+        public RansackedLibrary() : base()
+        {
+            this.name = "Ransacked Library";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "A room once filled with knowledge, very little if any of its texts remain";
+        }
+        public override char renderChar()
+        {
+            return 'L';
+        }
+    }
+    #endregion
+
+    #region Area2
+    public class Barracks : Room
+    {
+        public string name;
+        public Barracks() : base()
+        {
+            this.name = "Barracks";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a surprisingly well maintained barracks. Perhaps the cause has something to with the undead currently rushing to tear you limb from limb...";
+        }
+        public override char renderChar()
+        {
+            return 'B';
+        }
+    }
+
+    public class GuardsQuarters : Room
+    {
+        public string name;
+        public GuardsQuarters() : base()
+        {
+            this.name = "Guards Quarters";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a room that once housed many guards. Actually, it still does";
+        }
+        public override char renderChar()
+        {
+            return 'G';
+        }
+    }
+
+    public class SupplyRoom : Room
+    {
+        public string name;
+        public SupplyRoom() : base()
+        {
+            this.name = "Supply Room";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a room filled with food and weapon supplies. Unfortunately, you aren't the only one interested in these right now...";
+        }
+        public override char renderChar()
+        {
+            return 'S';
         }
     }
     public class Kitchen : Room
@@ -65,11 +299,93 @@ namespace Combat_and_Catacombs {
         }
         public override string describe()
         {
-            return "A room full of delicious food! And monsters, of course";
+            return "you enter a room full of delicious food! And undead, of course";
         }
         public override char renderChar()
         {
             return 'K';
+        }
+    }
+    public class MageRoom : Room
+    {
+        public string name;
+        public MageRoom() : base()
+        {
+            this.name = "Mage's Room";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a room that used to be inhabited by a potent user of magic. Either he is not here at the moment, or he's invisible";
+        }
+        public override char renderChar()
+        {
+            return 'M';
+        }
+    }
+
+    public class CaptainOffice : Room
+    {
+        public string name;
+        public CaptainOffice() : base()
+        {
+            this.name = "Captain's Office";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter the office of a rather grouchy guard captain. He must have gotten up on the wrong side of the coffin this morning";
+        }
+        public override char renderChar()
+        {
+            return 'C';
+        }
+    }
+
+    public class ArcheryRange : Room
+    {
+        public string name;
+        public ArcheryRange() : base()
+        {
+            this.name = "Archery Range";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a room filled with targets to shoot at, complete with one extra target that just entered the room";
+        }
+        public override char renderChar()
+        {
+            return 'A';
+        }
+    }
+    public class AlchemistLab : Room
+    {
+        public string name;
+        public AlchemistLab() : base()
+        {
+            this.name = "Alchemist's Lab";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a room filled with various experiments and strange chemicals. Some of them heading your way at terminal velocity";
+        }
+        public override char renderChar()
+        {
+            return 'L';
         }
     }
     public class Bathroom : Room
@@ -85,30 +401,132 @@ namespace Combat_and_Catacombs {
         }
         public override string describe()
         {
-            return "A simple Bathroom";
+            return "You enter a simple Bathroom";
         }
         public override char renderChar()
         {
             return 'B';
         }
     }
+public class PrisonCell : Room
+    {
+        public string name;
+        public PrisonCell() : base()
+        {
+            this.name = "Prison Cell";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a dark and foul smelling cell. Ugh... what died in here? Or un-died, for that matter";
+        }
+        public override char renderChar()
+        {
+            return 'B';
+        }
+    }
+    public class Throneroom : Room
+    {
+        public string name;
+        public Throneroom() : base()
+        {
+            this.name = "Throneroom";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "You enter a dazzling, massive hall full of riches";
+        }
+        public override char renderChar()
+        {
+            return 'T';
+        }
+    }
+    #endregion
 
+    #region Area3
+    #endregion
+
+    #region Area4
+    #endregion
+
+    #region Area5
+    #endregion
+
+    #region Area6
+    #endregion
+
+    #region Area7
+    #endregion
+
+    #region Area8
+    #endregion
+
+    #region Area9
+    #endregion
     public static class RoomFactory
     {
         private static Random rand = new Random();
 
-        public static Room GetRoom()
+        public static Room GetRoom(int area)
         {
-            switch (rand.Next(4))
+            if (area == 0)
             {
-                case 0:
-                    return new Throneroom();
-                case 1:
-                    return new Bathroom();
-                case 2:
-                    return new BurialMound();
-                default:
-                    return new Kitchen();
+                switch (rand.Next(9))
+                {
+                    case 0:
+                        return new OldCellar();
+                    case 1:
+                        return new HermitShack();
+                    case 2:
+                        return new Overgrowth();
+                    case 3:
+                        return new SmallCave();
+                    case 4:
+                        return new BurialMound();
+                    case 5:
+                        return new LargeAbandondedCrossroads();
+                    case 6:
+                        return new PillagedBarracks();
+                    case 7:
+                        return new FloodedRoom();
+                    case 8:
+                        return new GrassyEnclosure();
+                    default:
+                        return new RansackedLibrary();
+                }
+            }
+            else
+            {
+                switch (rand.Next(9))
+                {
+                    case 0:
+                        return new Barracks();
+                    case 1:
+                        return new GuardsQuarters();
+                    case 2:
+                        return new SupplyRoom();
+                    case 3:
+                        return new Kitchen();
+                    case 4:
+                        return new MageRoom();
+                    case 5:
+                        return new CaptainOffice();
+                    case 6:
+                        return new ArcheryRange();
+                    case 7:
+                        return new AlchemistLab();
+                    case 8:
+                        return new Bathroom();
+                    default:
+                        return new PrisonCell();
+                }
             }
         }
     }
