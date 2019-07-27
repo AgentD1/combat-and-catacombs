@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public abstract class Room {
         public char mapRenderChar = 'O';
+        public int[] mobtype;
         public Room() {}
         public abstract string givename();
         public abstract string describe();
@@ -319,7 +320,7 @@ namespace Combat_and_Catacombs {
         }
         public override string describe()
         {
-            return "You enter a room that used to be inhabited by a potent user of magic. Either he is not here at the moment, or he's invisible";
+            return "You enter the residence of a potent user of magic. Either he is not here at the moment, or he's invisible";
         }
         public override char renderChar()
         {
