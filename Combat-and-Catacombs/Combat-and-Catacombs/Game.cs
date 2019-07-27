@@ -11,7 +11,7 @@ namespace Combat_and_Catacombs {
             };
             bool quitting = false;
             bool displaypos;
-
+            
             while (!quitting) {
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 displaypos = true;
