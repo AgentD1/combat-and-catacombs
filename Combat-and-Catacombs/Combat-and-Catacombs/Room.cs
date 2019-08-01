@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public abstract class Room {
         public char mapRenderChar = 'O';
-        public int[] mobtype;
         public Room() {}
         public abstract string givename();
         public abstract string describe();
