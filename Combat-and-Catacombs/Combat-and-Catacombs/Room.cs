@@ -470,64 +470,11 @@ public class PrisonCell : Room
 
     #region Area9
     #endregion
-    public static class RoomFactory
-    {
-        private static Random rand = new Random();
 
-        public static Room GetRoom(int area)
-        {
-            if (area == 0)
-            {
-                switch (rand.Next(9))
-                {
-                    case 0:
-                        return new OldCellar();
-                    case 1:
-                        return new HermitShack();
-                    case 2:
-                        return new Overgrowth();
-                    case 3:
-                        return new SmallCave();
-                    case 4:
-                        return new BurialMound();
-                    case 5:
-                        return new LargeAbandondedCrossroads();
-                    case 6:
-                        return new PillagedBarracks();
-                    case 7:
-                        return new FloodedRoom();
-                    case 8:
-                        return new GrassyEnclosure();
-                    default:
-                        return new RansackedLibrary();
-                }
-            }
-            else
-            {
-                switch (rand.Next(9))
-                {
-                    case 0:
-                        return new Barracks();
-                    case 1:
-                        return new GuardsQuarters();
-                    case 2:
-                        return new SupplyRoom();
-                    case 3:
-                        return new Kitchen();
-                    case 4:
-                        return new MageRoom();
-                    case 5:
-                        return new CaptainOffice();
-                    case 6:
-                        return new ArcheryRange();
-                    case 7:
-                        return new AlchemistLab();
-                    case 8:
-                        return new Bathroom();
-                    default:
-                        return new PrisonCell();
-                }
-            }
-        }
-    }
+    public class AreaTables
+    {
+        public static RandomTable<Room> area1roomtable = new RandomTable<Room>(new Room[] {new OldCellar(),new HermitShack(),new Overgrowth(),new SmallCave(),new BurialMound(),new LargeAbandondedCrossroads(),new PillagedBarracks(),new FloodedRoom(),new GrassyEnclosure(),new RansackedLibrary()},new double[] {0,1,2,3,4,5,6,7,8,9});
+        public static RandomTable<Room> area2roomtable = new RandomTable<Room>(new Room[] {new Barracks(),new GuardsQuarters(),new SupplyRoom(),new Kitchen(),new MageRoom(),new CaptainOffice(),new ArcheryRange(),new AlchemistLab(),new Bathroom(),new PrisonCell()},new double[] {0,1,2,3,4,5,6,7,8,9});
+        public static RandomTable<Room>[] roomtables = new RandomTable<Room>[] {area1roomtable,area2roomtable};
+   }
 }

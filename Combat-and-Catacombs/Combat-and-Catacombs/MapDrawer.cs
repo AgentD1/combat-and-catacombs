@@ -20,7 +20,18 @@ namespace Combat_and_Catacombs {
                 {
                     for (int y = 0; y < MAP_HEIGHT; y++)
                     {
-                        rooms[a, x, y] = RoomFactory.GetRoom(a);
+                        switch (a)
+                        {
+                            case 0:
+                                rooms[a, x, y] = AreaTables.area1roomtable.PickRandomly();
+                                break;
+                            case 1:
+                                rooms[a, x, y] = AreaTables.area2roomtable.PickRandomly();
+                                break;
+                            default:
+                                rooms[a, x, y] = AreaTables.area2roomtable.PickRandomly();
+                                break;
+                        }
                     }
                 }
             }

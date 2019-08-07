@@ -63,6 +63,4 @@ namespace Combat_and_Catacombs
             this.health = 10;
         }
     }
-    class MobTables {
-    }
 }
