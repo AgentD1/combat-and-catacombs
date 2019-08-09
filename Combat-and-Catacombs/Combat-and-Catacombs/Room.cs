@@ -8,6 +8,7 @@ namespace Combat_and_Catacombs {
     public abstract class Room {
         public char mapRenderChar = 'O';
         public Room() {}
+        public Mob[] mobs;
         public abstract string givename();
         public abstract string describe();
         public abstract char renderChar();
@@ -110,7 +111,7 @@ namespace Combat_and_Catacombs {
         }
         public override string describe()
         {
-            return "You enter a room filled with earthern mounds, and the stench of the dead. It's too quiet in here...";
+            return "You enter a room filled with earthen mounds, and the stench of the dead. It's too quiet in here...";
         }
         public override char renderChar()
         {
@@ -476,5 +477,17 @@ public class PrisonCell : Room
         public static RandomTable<Room> area1roomtable = new RandomTable<Room>(new Room[] {new OldCellar(),new HermitShack(),new Overgrowth(),new SmallCave(),new BurialMound(),new LargeAbandondedCrossroads(),new PillagedBarracks(),new FloodedRoom(),new GrassyEnclosure(),new RansackedLibrary()},new double[] {0,1,2,3,4,5,6,7,8,9});
         public static RandomTable<Room> area2roomtable = new RandomTable<Room>(new Room[] {new Barracks(),new GuardsQuarters(),new SupplyRoom(),new Kitchen(),new MageRoom(),new CaptainOffice(),new ArcheryRange(),new AlchemistLab(),new Bathroom(),new PrisonCell()},new double[] {0,1,2,3,4,5,6,7,8,9});
         public static RandomTable<Room>[] roomtables = new RandomTable<Room>[] {area1roomtable,area2roomtable};
-   }
+        public static RandomTable<Type> area1mobtable = new RandomTable<Type>(new Type[] {typeof(Goblin1),typeof(Goblin2),typeof(Goblin3),typeof(Goblin4),typeof(Goblin5),typeof(Goblin6),typeof(Goblin7),typeof(Goblin8),typeof(Goblin9),typeof(Goblin10)},new double[] {1,2,3,4,5,6,7,8,9,10});
+        
+        public static Mob[] GetRandomMobs()
+        {
+            Mob mobtypeinstance = (Mob) Activator.CreateInstance(area1mobtable.PickRandomly());
+            Mob[] returnmobs = new Mob[mobtypeinstance.packsize];
+            for (int m = 0;m < mobtypeinstance.packsize;m++)
+            {
+                returnmobs[m] = (Mob) Activator.CreateInstance(mobtypeinstance.GetType());
+            }
+            return returnmobs;
+        }
+    }    
 }

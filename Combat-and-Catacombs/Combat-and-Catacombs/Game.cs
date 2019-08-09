@@ -61,6 +61,7 @@ namespace Combat_and_Catacombs {
                     Console.WriteLine(p.areaPosition.ToString(),p.roomPosition);
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
+                    Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].packsize} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
                     Console.WriteLine();
                 }
                 
