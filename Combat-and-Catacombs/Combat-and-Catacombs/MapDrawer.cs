@@ -37,6 +37,7 @@ namespace Combat_and_Catacombs {
                         }
                     }
                 }
+                rooms[a,4,4] = new Haven();
             }
         }
 

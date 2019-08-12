@@ -44,12 +44,16 @@ namespace Combat_and_Catacombs {
                         if (p.areaPosition != MapDrawer.AREAS)
                         {
                             p.areaPosition += 1;
+                            p.roomPosition.x = 5;
+                            p.roomPosition.y = 5;
                         }
                         break;
                     case "a":
                         if (p.areaPosition != 1)
                         {
                             p.areaPosition -= 1;
+                            p.roomPosition.x = 5;
+                            p.roomPosition.y = 5;
                         }
                         break;
                     default:
@@ -61,7 +65,14 @@ namespace Combat_and_Catacombs {
                     Console.WriteLine(p.areaPosition.ToString(),p.roomPosition);
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
-                    Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].packsize} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
+                    try
+                    {
+                        Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].packsize} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        Console.WriteLine("There are no mobs in this room");
+                    }
                     Console.WriteLine();
                 }
                 

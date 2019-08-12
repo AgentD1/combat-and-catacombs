@@ -14,6 +14,27 @@ namespace Combat_and_Catacombs {
         public abstract char renderChar();
     }
 
+    public class Haven : Room
+    {
+        public string name;
+        public Haven() : base()
+        {
+            this.name = "Haven";
+        }
+        public override string givename()
+        {
+            return name;
+        }
+        public override string describe()
+        {
+            return "This room is safe, you can rest here";
+        }
+        public override char renderChar()
+        {
+            return '*';
+        }
+    }
+
     #region Area1
     public class OldCellar : Room
     {
