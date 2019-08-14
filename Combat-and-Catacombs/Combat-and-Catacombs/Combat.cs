@@ -16,24 +16,46 @@ namespace Combat_and_Catacombs
         {
             bool win = false;
             bool playerdead = false;
-            int target = 0;
+            int targetinput;
             int round = 1;
             while (win == false && playerdead == false)
             {
                 Console.WriteLine($"round {round}");
+                    
+                
+
                 for (int f = 0;f < mobs.Length + 1; f++)
                 {
                     switch (f)
                     {
                         case 0:
                             Console.WriteLine("Player turn");
-                            mobs[target].health -= p.damage;
-                            Console.WriteLine($"Player attacked Mob {target + 1} for {p.damage} damage!");
-                            if (mobs[target].health < 1)
+                            Console.WriteLine("Which mob would you like to attack?");
+                            while (true)
                             {
-                                mobs[target].dead = true;
-                                target += 1;
-                                Console.WriteLine($"The attack killed Mob {target}!");
+                                try
+                                {
+                                    targetinput = Convert.ToInt32(Console.ReadLine());
+                                    if (targetinput < 1 | targetinput > mobs.Length)
+                                    {
+                                        Console.WriteLine("Please enter a number that corresponds to a enemy, living or dead");
+                                        continue;
+                                    }
+                                    break;
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Must enter a integer");
+                                    continue;
+                                }
+                            }
+                            mobs[targetinput-1].health -= p.damage;
+                            Console.WriteLine($"Player attacked Mob {targetinput} for {p.damage} damage!");
+                            Console.WriteLine(targetinput);
+                            if (mobs[targetinput-1].health < 1 && mobs[targetinput-1].dead == false)
+                            {
+                                mobs[targetinput-1].dead = true;
+                                Console.WriteLine($"The attack killed Mob {targetinput}!");
                             }
                             break;
                         default:
