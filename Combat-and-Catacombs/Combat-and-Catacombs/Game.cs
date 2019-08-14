@@ -7,7 +7,10 @@ namespace Combat_and_Catacombs {
         static void Main(string[] args) {
             p = new Player() {
                 roomPosition = new Vector2(5, 5),
-                areaPosition = 1
+                areaPosition = 1,
+                maxhealth = 999999,
+                health = 999999,
+                damage = 8
             };
             bool quitting = false;
             bool displaypos;
@@ -37,9 +40,12 @@ namespace Combat_and_Catacombs {
                     case "l":
                     case "e":
                         if (p.roomPosition.x != MapDrawer.MAP_WIDTH) {
-                            p.roomPosition.x++;
-                        }
+                            p.roomPosition.x++;                        }
                         break;
+                    case "p":
+                            Combat.engagecombat(p,MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1,p.roomPosition.y - 1].mobs);
+                            displaypos = false;
+                            break;
                     case "q":
                         if (p.areaPosition != MapDrawer.AREAS)
                         {
@@ -58,8 +64,9 @@ namespace Combat_and_Catacombs {
                         break;
                     default:
                         displaypos = false;
-                        break;
+                        break;   
                 }
+
                 if (displaypos) {
                     MapDrawer.PrintMap(p.roomPosition);
                     Console.WriteLine(p.areaPosition.ToString(),p.roomPosition);
@@ -67,7 +74,7 @@ namespace Combat_and_Catacombs {
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
                     try
                     {
-                        Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].packsize} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
+                        Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs.Length} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
                     }
                     catch (System.NullReferenceException)
                     {
