@@ -23,15 +23,15 @@ namespace Combat_and_Catacombs {
                         switch (a)
                         {
                             case 0:
-                                rooms[a, x, y] = AreaTables.area1roomtable.PickRandomly();
+                                rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area1roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
                                 break;
                             case 1:
-                                rooms[a, x, y] = AreaTables.area2roomtable.PickRandomly();
+                                rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
                                 break;
                             default:
-                                rooms[a, x, y] = AreaTables.area2roomtable.PickRandomly();
+                                rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
                                 break;
                         }

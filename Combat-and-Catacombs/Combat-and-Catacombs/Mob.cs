@@ -9,8 +9,11 @@ namespace Combat_and_Catacombs
     public class Mob
     {
         public int health;
+        public int healthrange;
         public int packsize;
+        public int packsizerange;
         public int damage;
+        public int damagerange;
         public string name;
         public bool dead = false;
         public Mob() {
@@ -21,84 +24,114 @@ namespace Combat_and_Catacombs
         }
     }
 
-    class Goblin1 : Mob {
-        public Goblin1() : base() {
-            this.health = 1;
-            this.packsize = 1;
-            this.damage = 1;
-            this.name = "Goblin1";
-        }
-    }
-    class Goblin2 : Mob {
-        public Goblin2() : base() {
-            this.health = 2;
-            this.packsize = 2;
-            this.damage = 2;
-            this.name = "Goblin2";
-        }
-    }
-    class Goblin3 : Mob {
-        public Goblin3() : base() {
-            this.health = 3;
-            this.packsize = 3;
-            this.damage = 3;
-            this.name = "Goblin3";
-        }
-    }
-    class Goblin4 : Mob {
-        public Goblin4() : base() {
-            this.health = 4;
-            this.packsize = 4;
-            this.damage = 4;
-            this.name = "Goblin4";
-        }
-    }
-    class Goblin5 : Mob {
-        public Goblin5() : base() {
-            this.health = 5;
-            this.packsize = 5;
-            this.damage = 5;
-            this.name = "Goblin5";
-        }
-    }
-    class Goblin6 : Mob {
-        public Goblin6() : base() {
-            this.health = 6;
-            this.packsize = 6;
-            this.damage = 6;
-            this.name = "Goblin6";
-        }
-    }
-    class Goblin7 : Mob {
-        public Goblin7() : base() {
-            this.health = 7;
-            this.packsize = 7;
-            this.damage = 7;
-            this.name = "Goblin7";
-        }
-    }
-    class Goblin8 : Mob {
-        public Goblin8() : base() {
-            this.health = 8;
-            this.packsize = 8;
-            this.damage = 8;
-            this.name = "Goblin8";
-        }
-    }
-    class Goblin9 : Mob {
-        public Goblin9() : base() {
+    class Goblin : Mob {
+        public Goblin() : base() {
             this.health = 9;
-            this.packsize = 9;
-            this.damage = 9;
-            this.name = "Goblin9";
+            this.healthrange = 2;
+            this.packsize = 2;
+            this.packsizerange = 1;
+            this.damage = 1;
+            this.damagerange = 1;
+            this.name = "Goblin";
         }
     }
-    class Goblin10 : Mob {
-        public Goblin10() : base() {
+    class CrazedMan : Mob {
+        public CrazedMan() : base() {
+            this.health = 14;
+            this.healthrange = 4;
+            this.packsize = 1;
+            this.packsizerange = 1;
+            this.damage = 2;
+            this.damagerange = 2;
+            this.name = "Crazed man";
+        }
+    }
+    class FaintApparition : Mob {
+        public FaintApparition() : base() {
+            this.health = 4;
+            this.healthrange = 2;
+            this.packsize = 4;
+            this.packsizerange = 2;
+            this.damage = 3;
+            this.damagerange = 1;
+            this.name = "Faint apparition";
+        }
+    }
+    class Serpent : Mob {
+        public Serpent() : base() {
+            this.health = 5;
+            this.healthrange = 2;
+            this.packsize = 3;
+            this.packsizerange = 1;
+            this.damage = 4;
+            this.damagerange = 1;
+            this.name = "Serpent";
+        }
+    }
+    class Troll : Mob {
+        public Troll() : base() {
+            this.health = 23;
+            this.healthrange = 5;
+            this.packsize = 1;
+            this.packsizerange = 0;
+            this.damage = 5;
+            this.damagerange = 3;
+            this.name = "Troll";
+        }
+    }
+    class GiantSpider : Mob {
+        public GiantSpider() : base() {
+            this.health = 8;
+            this.healthrange = 2;
+            this.packsize = 1;
+            this.packsizerange = 2;
+            this.damage = 6;
+            this.damagerange = 2;
+            this.name = "Giant spider";
+        }
+    }
+    class Bloodhound : Mob {
+        public Bloodhound() : base() {
             this.health = 10;
-            this.packsize = 10;
+            this.healthrange = 3;
+            this.packsize = 1;
+            this.packsizerange = 1;
+            this.damage = 7;
+            this.damagerange = 1;
+            this.name = "Bloodhound";
+        }
+    }
+    class BlueSludgii : Mob {
+        public BlueSludgii() : base() {
+            this.health = 8;
+            this.healthrange = 2;
+            this.packsize = 2;
+            this.packsizerange = 2;
+            this.damage = 8;
+            this.damagerange = 1;
+            this.name = "Blue Sludgii";
+        }
+    }
+    class BlackSludgii : Mob {
+        public BlackSludgii() : base() {
+            this.health = 15;
+            this.healthrange = 3;
+            this.packsize = 1;
+            this.packsizerange = 0;
+            this.damage = 9;
+            this.damagerange = 3;
+            this.name = "Black Sludgii";
+        }
+    }
+    class Bandit : Mob {
+        public Bandit() : base() {
+            this.health = 7;
+            this.healthrange = 2;
+            this.packsize = 3;
+            this.packsizerange = 2;
             this.damage = 10;
-            this.name = "Goblin10";
+            this.damagerange = 2;
+            this.name = "Bandit";
         }
     }
 }

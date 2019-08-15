@@ -51,7 +51,7 @@ namespace Combat_and_Catacombs {
                         {
                             p.areaPosition += 1;
                             p.roomPosition.x = 5;
-                            p.roomPosition.y = 5;
+                            p.roomPosition.y = 4;
                         }
                         break;
                     case "a":
@@ -59,22 +59,22 @@ namespace Combat_and_Catacombs {
                         {
                             p.areaPosition -= 1;
                             p.roomPosition.x = 5;
-                            p.roomPosition.y = 5;
+                            p.roomPosition.y = 4;
                         }
                         break;
                     default:
                         displaypos = false;
                         break;   
                 }
-
+                Room currentroom = MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1];
                 if (displaypos) {
                     MapDrawer.PrintMap(p.roomPosition);
-                    Console.WriteLine(p.areaPosition.ToString(),p.roomPosition);
+                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].damage.ToString());
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
                     Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
                     try
                     {
-                        Console.WriteLine($"You meet {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs.Length} {MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].givename()}");
+                        Console.WriteLine($"You meet {currentroom.mobs.Length} {currentroom.mobs[0].givename()}");
                     }
                     catch (System.NullReferenceException)
                     {
