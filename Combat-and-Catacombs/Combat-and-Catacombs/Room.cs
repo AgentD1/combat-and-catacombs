@@ -495,18 +495,27 @@ public class PrisonCell : Room
 
     public class AreaTables
     {
-        public static RandomTable<Room> area1roomtable = new RandomTable<Room>(new Room[] {new OldCellar(),new HermitShack(),new Overgrowth(),new SmallCave(),new BurialMound(),new LargeAbandondedCrossroads(),new PillagedBarracks(),new FloodedRoom(),new GrassyEnclosure(),new RansackedLibrary()},new double[] {0,1,2,3,4,5,6,7,8,9});
-        public static RandomTable<Room> area2roomtable = new RandomTable<Room>(new Room[] {new Barracks(),new GuardsQuarters(),new SupplyRoom(),new Kitchen(),new MageRoom(),new CaptainOffice(),new ArcheryRange(),new AlchemistLab(),new Bathroom(),new PrisonCell()},new double[] {0,1,2,3,4,5,6,7,8,9});
-        public static RandomTable<Room>[] roomtables = new RandomTable<Room>[] {area1roomtable,area2roomtable};
-        public static RandomTable<Type> area1mobtable = new RandomTable<Type>(new Type[] {typeof(Goblin1),typeof(Goblin2),typeof(Goblin3),typeof(Goblin4),typeof(Goblin5),typeof(Goblin6),typeof(Goblin7),typeof(Goblin8),typeof(Goblin9),typeof(Goblin10)},new double[] {1,2,3,4,5,6,7,8,9,10});
-        
+
+
+        // the new OldCellar etc in area1roomtable doesn't make a new instance each time its called on, thats why each has a specific mob type in it
+
+
+        public static RandomTable<Type> area1roomtable = new RandomTable<Type>(new Type[] {typeof(OldCellar),typeof(HermitShack),typeof(Overgrowth),typeof(SmallCave),typeof(BurialMound),typeof(LargeAbandondedCrossroads),typeof(PillagedBarracks),typeof(FloodedRoom),typeof(GrassyEnclosure),typeof(RansackedLibrary)},new double[] {1,2,3,4,5,6,7,8,9,10});
+        public static RandomTable<Type> area2roomtable = new RandomTable<Type>(new Type[] {typeof(Barracks),typeof(GuardsQuarters),typeof(SupplyRoom),typeof(Kitchen),typeof(MageRoom),typeof(CaptainOffice),typeof(ArcheryRange),typeof(AlchemistLab),typeof(Bathroom),typeof(PrisonCell)},new double[] {1,2,3,4,5,6,7,8,9,10});
+        public static RandomTable<Type>[] roomtables = new RandomTable<Type>[] {area1roomtable,area2roomtable};
+        public static RandomTable<Type> area1mobtable = new RandomTable<Type>(new Type[] {typeof(Goblin),typeof(CrazedMan),typeof(FaintApparition),typeof(Serpent),typeof(Troll),typeof(GiantSpider),typeof(Bloodhound),typeof(BlueSludgii),typeof(BlackSludgii),typeof(Bandit)},new double[] {1,2,3,4,5,6,7,8,9,10});
+        public static Random rand = new Random();
+
         public static Mob[] GetRandomMobs()
         {
             Mob mobtypeinstance = (Mob) Activator.CreateInstance(area1mobtable.PickRandomly());
+            mobtypeinstance.packsize += rand.Next(mobtypeinstance.packsizerange+1);
             Mob[] returnmobs = new Mob[mobtypeinstance.packsize];
             for (int m = 0;m < mobtypeinstance.packsize;m++)
             {
                 returnmobs[m] = (Mob) Activator.CreateInstance(mobtypeinstance.GetType());
+                returnmobs[m].health += rand.Next(returnmobs[m].healthrange+1);
+                returnmobs[m].damage += rand.Next(returnmobs[m].damagerange+1);
             }
             return returnmobs;
         }
