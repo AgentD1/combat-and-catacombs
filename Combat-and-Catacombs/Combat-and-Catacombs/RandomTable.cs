@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public class RandomTable<T> {
 
-        Random r;
         public T[] possibleThings;
         public double[] chances;
 
         public RandomTable(T[] things, double[] thingChances) {
-            r = new Random();
+            
             possibleThings = things;
             chances = new double[thingChances.Length + 1];
             chances[0] = 0.0;
@@ -32,7 +31,7 @@ namespace Combat_and_Catacombs {
         }
 
         public T PickRandomly() {
-            double random = r.NextDouble() * chances[chances.Length - 1];
+            double random = Game.r.NextDouble() * chances[chances.Length - 1];
             T currentPick = possibleThings[0];
             for (int i = 1; i < possibleThings.Length; i++) {
                 if(random > chances[i]) {
