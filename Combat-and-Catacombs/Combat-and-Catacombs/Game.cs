@@ -3,6 +3,7 @@ using System.Threading;
 
 namespace Combat_and_Catacombs {
     static class Game {
+        public static Random r = new Random();
         public static Player p;
         static void Main(string[] args) {
             p = new Player() {
