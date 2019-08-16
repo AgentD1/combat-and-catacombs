@@ -37,11 +37,9 @@ namespace Combat_and_Catacombs {
                 if(random > chances[i]) {
                     currentPick = possibleThings[i];
                 } else {
-                    Console.WriteLine(currentPick);
                     return currentPick;
                 }
             }
-            Console.WriteLine(currentPick);
             return currentPick;
         }
     }

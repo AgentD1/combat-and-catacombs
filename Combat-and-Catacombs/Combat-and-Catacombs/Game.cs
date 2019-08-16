@@ -41,18 +41,25 @@ namespace Combat_and_Catacombs {
                     case "l":
                     case "e":
                         if (p.roomPosition.x != MapDrawer.MAP_WIDTH) {
-                            p.roomPosition.x++;                        }
+                            p.roomPosition.x++;
+                        }
                         break;
                     case "p":
-                            Combat.engagecombat(p,MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1,p.roomPosition.y - 1].mobs);
-                            displaypos = false;
+                            if (MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1,p.roomPosition.y - 1].mobscleared == false)
+                            {
+                                Combat.engagecombat(p,MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1,p.roomPosition.y - 1].mobs);
+                            }
+                            else
+                            {
+                                displaypos = false;
+                            }
                             break;
                     case "q":
                         if (p.areaPosition != MapDrawer.AREAS)
                         {
                             p.areaPosition += 1;
                             p.roomPosition.x = 5;
-                            p.roomPosition.y = 4;
+                            p.roomPosition.y = 5;
                         }
                         break;
                     case "a":
@@ -60,7 +67,7 @@ namespace Combat_and_Catacombs {
                         {
                             p.areaPosition -= 1;
                             p.roomPosition.x = 5;
-                            p.roomPosition.y = 4;
+                            p.roomPosition.y = 5;
                         }
                         break;
                     default:
@@ -70,14 +77,13 @@ namespace Combat_and_Catacombs {
                 Room currentroom = MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1];
                 if (displaypos) {
                     MapDrawer.PrintMap(p.roomPosition);
-                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].mobs[0].damage.ToString());
-                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].givename());
-                    Console.WriteLine(MapDrawer.rooms[p.areaPosition - 1,p.roomPosition.x - 1, p.roomPosition.y - 1].describe());
-                    try
+                    Console.WriteLine(currentroom.givename());
+                    Console.WriteLine(currentroom.describe());
+                    if (currentroom.mobscleared == false)
                     {
                         Console.WriteLine($"You meet {currentroom.mobs.Length} {currentroom.mobs[0].givename()}");
                     }
-                    catch (System.NullReferenceException)
+                    else
                     {
                         Console.WriteLine("There are no mobs in this room");
                     }

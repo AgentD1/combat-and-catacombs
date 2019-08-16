@@ -25,19 +25,23 @@ namespace Combat_and_Catacombs {
                             case 0:
                                 rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area1roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobscleared = false;
                                 break;
                             case 1:
                                 rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobscleared = false;
                                 break;
                             default:
                                 rooms[a, x, y] = (Room) Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
                                 rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobscleared = false;
                                 break;
                         }
                     }
                 }
                 rooms[a,4,4] = new Haven();
+                rooms[a,4,4].mobscleared = true;
             }
         }
 

@@ -11,5 +11,6 @@ namespace Combat_and_Catacombs {
         public int maxhealth;
         public int health;
         public int damage;
+        public bool dead;
     }
 }

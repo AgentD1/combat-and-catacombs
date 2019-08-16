@@ -9,6 +9,7 @@ namespace Combat_and_Catacombs {
         public char mapRenderChar = 'O';
         public Room() {}
         public Mob[] mobs;
+        public bool mobscleared;
         public abstract string givename();
         public abstract string describe();
         public abstract char renderChar();
@@ -495,11 +496,6 @@ public class PrisonCell : Room
 
     public class AreaTables
     {
-
-
-        // the new OldCellar etc in area1roomtable doesn't make a new instance each time its called on, thats why each has a specific mob type in it
-
-
         public static RandomTable<Type> area1roomtable = new RandomTable<Type>(new Type[] {typeof(OldCellar),typeof(HermitShack),typeof(Overgrowth),typeof(SmallCave),typeof(BurialMound),typeof(LargeAbandondedCrossroads),typeof(PillagedBarracks),typeof(FloodedRoom),typeof(GrassyEnclosure),typeof(RansackedLibrary)},new double[] {1,2,3,4,5,6,7,8,9,10});
         public static RandomTable<Type> area2roomtable = new RandomTable<Type>(new Type[] {typeof(Barracks),typeof(GuardsQuarters),typeof(SupplyRoom),typeof(Kitchen),typeof(MageRoom),typeof(CaptainOffice),typeof(ArcheryRange),typeof(AlchemistLab),typeof(Bathroom),typeof(PrisonCell)},new double[] {1,2,3,4,5,6,7,8,9,10});
         public static RandomTable<Type>[] roomtables = new RandomTable<Type>[] {area1roomtable,area2roomtable};
