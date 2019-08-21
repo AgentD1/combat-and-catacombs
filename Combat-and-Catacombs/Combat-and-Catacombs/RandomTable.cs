@@ -11,7 +11,7 @@ namespace Combat_and_Catacombs {
         public double[] chances;
 
         public RandomTable(T[] things, double[] thingChances) {
-            
+
             possibleThings = things;
             chances = new double[thingChances.Length + 1];
             chances[0] = 0.0;
@@ -19,12 +19,12 @@ namespace Combat_and_Catacombs {
                 chances[i + 1] = thingChances[i];
             }
 
-            if(things.Length != thingChances.Length) {
+            if (things.Length != thingChances.Length) {
                 throw new FormatException("things.Length and thingChances.Length should be the same!");
             }
 
             for (int i = 1; i < things.Length; i++) {
-                if(thingChances[i] <= thingChances[i-1]) {
+                if (thingChances[i] <= thingChances[i - 1]) {
                     throw new FormatException("thingChances must be in ascending order!");
                 }
             }
@@ -34,7 +34,7 @@ namespace Combat_and_Catacombs {
             double random = Game.r.NextDouble() * chances[chances.Length - 1];
             T currentPick = possibleThings[0];
             for (int i = 1; i < possibleThings.Length; i++) {
-                if(random > chances[i]) {
+                if (random > chances[i]) {
                     currentPick = possibleThings[i];
                 } else {
                     return currentPick;

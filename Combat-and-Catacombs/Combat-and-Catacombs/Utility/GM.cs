@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Combat_and_Catacombs {
     public static class GM {
-        
+
     }
 }

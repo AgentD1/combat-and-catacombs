@@ -27,7 +27,7 @@ namespace Combat_and_Catacombs {
         #endregion
 
         #region Operators
-        public static Vector2 operator+(Vector2 lhs, Vector2 rhs) {
+        public static Vector2 operator +(Vector2 lhs, Vector2 rhs) {
             return new Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
         }
 
@@ -46,7 +46,7 @@ namespace Combat_and_Catacombs {
         public static Vector2 operator *(Vector2 lhs, int rhs) {
             return new Vector2(lhs.x * rhs, lhs.y * rhs);
         }
-        
+
         public static Vector2 operator /(Vector2 lhs, int rhs) {
             return new Vector2(lhs.x / rhs, lhs.y / rhs);
         }

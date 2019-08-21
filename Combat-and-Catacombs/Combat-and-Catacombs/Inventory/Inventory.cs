@@ -16,5 +16,9 @@ namespace Combat_and_Catacombs {
                 items[i] = null;
             }
         }
+
+        public static void EnterInventoryMenu(Inventory i, Player p) {
+
+        }
     }
 }
