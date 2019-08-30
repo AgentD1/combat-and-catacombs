@@ -11,6 +11,10 @@ namespace Combat_and_Catacombs {
         public int maxhealth;
         public int health;
         public int damage;
+        public int agility;
+        public int resistance;
+        public int lightmana;
+        public int darkmana;
         public bool dead;
     }
 }

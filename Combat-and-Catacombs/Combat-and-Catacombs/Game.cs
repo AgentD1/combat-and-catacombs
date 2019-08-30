@@ -11,11 +11,13 @@ namespace Combat_and_Catacombs {
                 areaPosition = 1,
                 maxhealth = 999999,
                 health = 999999,
-                damage = 8
+                damage = 8,
+                agility = 10,
+                resistance = 2,
+                lightmana = 10,
+                darkmana = 10
             };
             bool quitting = false;
-            bool displaypos;
-
 
             MapDrawer.PrintMap(p.roomPosition);
             Room myRoom = MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1];

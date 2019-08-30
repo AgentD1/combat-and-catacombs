@@ -13,8 +13,6 @@ namespace Combat_and_Catacombs {
             // We're using A C E I J K L N P Q S W X
             // 
 
-            Console.WriteLine("Move (NSEW), Engage in Combat (P), Open Inventory (C), Exit (X)");
-
             switch (keyPressed) {
                 case "i":
                 case "n":
@@ -68,6 +66,7 @@ namespace Combat_and_Catacombs {
                     
                     break;
                 default:
+                    Console.WriteLine("Move (NSEW), Engage in Combat (P), Open Inventory (C), Exit (X)");
                     displayPos = false;
                     break;
             }
