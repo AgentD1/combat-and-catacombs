@@ -12,7 +12,7 @@ namespace Combat_and_Catacombs {
                 maxhealth = 999999,
                 health = 999999,
                 damage = 8,
-                agility = 10,
+                agility = 2,
                 resistance = 2,
                 lightmana = 10,
                 darkmana = 10

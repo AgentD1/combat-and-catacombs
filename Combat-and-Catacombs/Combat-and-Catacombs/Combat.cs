@@ -62,11 +62,20 @@ namespace Combat_and_Catacombs {
                                             continue;
                                         }
                                     }
-                                    mobs[targetinput - 1].health -= p.damage;
-                                    Console.WriteLine($"Player attacked Mob {targetinput} for {p.damage} damage!");
-                                    if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
-                                        mobs[targetinput - 1].dead = true;
-                                        Console.WriteLine($"The attack killed Mob {targetinput}!");
+                                    if (Game.r.Next(1,100) > mobs[targetinput-1].agility) {
+                                        int pdamage = (p.damage - mobs[targetinput - 1].resistance);
+                                        if (pdamage <= 0) {
+                                            Console.WriteLine($"Mob {targetinput} fully resisted the attack!");
+                                        } else {
+                                            mobs[targetinput - 1].health -= pdamage;
+                                            Console.WriteLine($"Player attacked Mob {targetinput} for {pdamage} damage!");
+                                        }
+                                        if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
+                                            mobs[targetinput - 1].dead = true;
+                                            Console.WriteLine($"The attack killed Mob {targetinput}!");
+                                        }
+                                    } else {
+                                        Console.WriteLine($"Mob {targetinput} dodged the attack!");
                                     }
                                     break;
                                 case 2:
@@ -103,10 +112,15 @@ namespace Combat_and_Catacombs {
                             }
                             break;
                         default:
-                            if (mobs[f - 1].dead == false) {
-                                Console.WriteLine($"Mob {f}'s turn");
-                                Console.WriteLine($"Mob {f} attacked the player for {mobs[f - 1].damage} damage!");
-                                p.health -= mobs[f - 1].damage;
+                            if (Game.r.Next(1,100) > p.agility) {
+                                if (mobs[f - 1].dead == false) {
+                                    int mdamage = (mobs[f - 1].damage - p.resistance);
+                                    Console.WriteLine($"Mob {f}'s turn");
+                                    Console.WriteLine($"Mob {f} attacked the player for {mdamage} damage!");
+                                    p.health -= mdamage;
+                                }
+                            } else {
+                                Console.WriteLine($"The player dodged mob {f}'s attack!");
                             }
                             break;
                     }
@@ -117,9 +131,9 @@ namespace Combat_and_Catacombs {
                 }
                 Console.WriteLine();
                 Console.WriteLine($"Player health: {p.health} out of {p.maxhealth}");
+                win = true;
                 for (int m = 0; m < mobs.Length; m++) {
                     if (mobs[m].dead == true) {
-                        win = true;
                         Console.WriteLine($"mob {m + 1} is dead");
                     } else if (mobs[m].dead == false) {
                         win = false;

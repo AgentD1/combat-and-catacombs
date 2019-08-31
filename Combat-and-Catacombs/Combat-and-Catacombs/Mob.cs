@@ -12,6 +12,8 @@ namespace Combat_and_Catacombs {
         public int packsizerange;
         public int damage;
         public int damagerange;
+        public int agility;
+        public int resistance;
         public string name;
         public bool dead = false;
         public Mob() {
@@ -29,6 +31,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 1;
             damage = 1;
             damagerange = 1;
+            agility = 1;
+            resistance = 1;
             name = "Goblin";
         }
     }
@@ -40,6 +44,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 1;
             damage = 2;
             damagerange = 2;
+            agility = 1;
+            resistance = 1;
             name = "Crazed man";
         }
     }
@@ -51,6 +57,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 2;
             damage = 3;
             damagerange = 1;
+            agility = 1;
+            resistance = 1;
             name = "Faint apparition";
         }
     }
@@ -62,6 +70,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 1;
             damage = 4;
             damagerange = 1;
+            agility = 1;
+            resistance = 1;
             name = "Serpent";
         }
     }
@@ -73,6 +83,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 0;
             damage = 5;
             damagerange = 3;
+            agility = 1;
+            resistance = 1;
             name = "Troll";
         }
     }
@@ -84,6 +96,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 2;
             damage = 6;
             damagerange = 2;
+            agility = 1;
+            resistance = 1;
             name = "Giant spider";
         }
     }
@@ -95,6 +109,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 1;
             damage = 7;
             damagerange = 1;
+            agility = 1;
+            resistance = 1;
             name = "Bloodhound";
         }
     }
@@ -106,6 +122,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 2;
             damage = 8;
             damagerange = 1;
+            agility = 1;
+            resistance = 1;
             name = "Blue Sludgii";
         }
     }
@@ -117,6 +135,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 0;
             damage = 9;
             damagerange = 3;
+            agility = 1;
+            resistance = 1;
             name = "Black Sludgii";
         }
     }
@@ -128,6 +148,8 @@ namespace Combat_and_Catacombs {
             packsizerange = 2;
             damage = 10;
             damagerange = 2;
+            agility = 1;
+            resistance = 1;
             name = "Bandit";
         }
     }
