@@ -16,5 +16,6 @@ namespace Combat_and_Catacombs {
         public int lightmana;
         public int darkmana;
         public bool dead;
+        public Inventory inventory;
     }
 }

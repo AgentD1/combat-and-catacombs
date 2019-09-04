@@ -15,7 +15,8 @@ namespace Combat_and_Catacombs {
                 agility = 2,
                 resistance = 2,
                 lightmana = 10,
-                darkmana = 10
+                darkmana = 10,
+                inventory = new Inventory(30, p)
             };
             bool quitting = false;
 

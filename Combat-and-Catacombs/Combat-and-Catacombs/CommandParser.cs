@@ -10,7 +10,7 @@ namespace Combat_and_Catacombs {
             bool displayPos = true;
 
             //
-            // We're using A C E I J K L N P Q S W X
+            // We're using A C E I J K L N P Q S W
             // 
 
             switch (keyPressed) {
@@ -59,11 +59,8 @@ namespace Combat_and_Catacombs {
                         p.roomPosition.y = 5;
                     }
                     break;
-                case "C":
-
-                    break;
-                case "x":
-                    
+                case "c":
+                    p.inventory.EnterInventoryMenu();
                     break;
                 default:
                     Console.WriteLine("Move (NSEW), Engage in Combat (P), Open Inventory (C), Exit (X)");

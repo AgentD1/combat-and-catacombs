@@ -46,6 +46,9 @@
     <Compile Include="Inventory\IArmourItem.cs" />
     <Compile Include="Inventory\IItem.cs" />
     <Compile Include="Inventory\Inventory.cs" />
+    <Compile Include="Inventory\Items\GoldCoin.cs" />
+    <Compile Include="Inventory\Items\TestPotion.cs" />
+    <Compile Include="Inventory\IUsableItem.cs" />
     <Compile Include="Inventory\IWeaponItem.cs" />
     <Compile Include="Inventory\Stack.cs" />
     <Compile Include="Mob.cs" />
@@ -64,8 +67,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Inventory\Items\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
