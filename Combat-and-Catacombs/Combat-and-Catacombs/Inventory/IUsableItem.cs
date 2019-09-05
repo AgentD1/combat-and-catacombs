@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Combat_and_Catacombs {
-    public class Stack {
-        public IItem item;
-        public int number;
+    interface IUsableItem : IItem {
+        void Use(Player p);
     }
 }
