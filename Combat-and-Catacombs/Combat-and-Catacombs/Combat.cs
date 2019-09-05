@@ -16,6 +16,8 @@ namespace Combat_and_Catacombs {
             int actionchoice;
             int targetinput;
             int round = 1;
+            int lightcooldown = 0;
+            int darkcooldown = 0;
             Console.WriteLine($"Player health is at {p.health} out of {p.maxhealth}");
             for (int m = 0; m < mobs.Length; m++) {
                 Console.WriteLine($"Mob {m + 1} health: {mobs[m].health}");
@@ -38,6 +40,12 @@ namespace Combat_and_Catacombs {
                                     actionchoice = Convert.ToInt32(Console.ReadKey(true).Key) - 48;
                                     if (actionchoice < 1 | actionchoice > 3) {
                                         Console.WriteLine("Press a number corresponding to an action");
+                                        continue;
+                                    } else if (actionchoice == 2 & lightcooldown > 0) {
+                                        Console.WriteLine($"{lightcooldown} rounds until light magic is available");
+                                        continue;
+                                    } else if (actionchoice == 3 & darkcooldown > 0) {
+                                        Console.WriteLine($"{darkcooldown} rounds until dark magic is available");
                                         continue;
                                     }
                                     break;
@@ -86,6 +94,7 @@ namespace Combat_and_Catacombs {
                                     } else {
                                         Console.WriteLine($"You heal {p.lightmana} health");
                                     }
+                                    lightcooldown = 3;
                                     break;
                                 default:
                                     while (true) {
@@ -108,6 +117,7 @@ namespace Combat_and_Catacombs {
                                         mobs[targetinput - 1].dead = true;
                                         Console.WriteLine($"The attack killed Mob {targetinput}!");
                                     }
+                                    darkcooldown = 3;
                                     break;
                             }
                             break;
@@ -125,6 +135,8 @@ namespace Combat_and_Catacombs {
                             break;
                     }
                 }
+                lightcooldown -= 1;
+                darkcooldown -= 1;
                 if (p.health < 1) {
                     playerdead = true;
                     break;
