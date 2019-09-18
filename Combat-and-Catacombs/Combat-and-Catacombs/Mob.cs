@@ -15,6 +15,7 @@ namespace Combat_and_Catacombs {
         public int agility;
         public int resistance;
         public string name;
+        public int xpreward;
         public bool dead = false;
         public Mob() {
         }
@@ -33,6 +34,7 @@ namespace Combat_and_Catacombs {
             damagerange = 1;
             agility = 1;
             resistance = 1;
+            xpreward = 2;
             name = "Goblin";
         }
     }
@@ -46,6 +48,7 @@ namespace Combat_and_Catacombs {
             damagerange = 2;
             agility = 1;
             resistance = 1;
+            xpreward = 3;
             name = "Crazed man";
         }
     }
@@ -59,6 +62,7 @@ namespace Combat_and_Catacombs {
             damagerange = 1;
             agility = 1;
             resistance = 1;
+            xpreward = 1;
             name = "Faint apparition";
         }
     }
@@ -72,6 +76,7 @@ namespace Combat_and_Catacombs {
             damagerange = 1;
             agility = 1;
             resistance = 1;
+            xpreward = 2;
             name = "Serpent";
         }
     }
@@ -85,6 +90,7 @@ namespace Combat_and_Catacombs {
             damagerange = 3;
             agility = 1;
             resistance = 1;
+            xpreward = 5;
             name = "Troll";
         }
     }
@@ -98,6 +104,7 @@ namespace Combat_and_Catacombs {
             damagerange = 2;
             agility = 1;
             resistance = 1;
+            xpreward = 4;
             name = "Giant spider";
         }
     }
@@ -111,6 +118,7 @@ namespace Combat_and_Catacombs {
             damagerange = 1;
             agility = 1;
             resistance = 1;
+            xpreward = 3;
             name = "Bloodhound";
         }
     }
@@ -124,6 +132,7 @@ namespace Combat_and_Catacombs {
             damagerange = 1;
             agility = 1;
             resistance = 1;
+            xpreward = 4;
             name = "Blue Sludgii";
         }
     }
@@ -137,6 +146,7 @@ namespace Combat_and_Catacombs {
             damagerange = 3;
             agility = 1;
             resistance = 1;
+            xpreward = 6;
             name = "Black Sludgii";
         }
     }
@@ -150,6 +160,7 @@ namespace Combat_and_Catacombs {
             damagerange = 2;
             agility = 1;
             resistance = 1;
+            xpreward = 3;
             name = "Bandit";
         }
     }

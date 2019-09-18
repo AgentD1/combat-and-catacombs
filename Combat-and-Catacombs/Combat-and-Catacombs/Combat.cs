@@ -10,7 +10,7 @@ namespace Combat_and_Catacombs {
 
         static Combat() { }
 
-        public static void EngageCombat(Player p, Mob[] mobs) {
+        public static int EngageCombat(Player p, Mob[] mobs) {
             bool win = false;
             bool playerdead = false;
             int actionchoice;
@@ -18,6 +18,7 @@ namespace Combat_and_Catacombs {
             int round = 1;
             int lightcooldown = 0;
             int darkcooldown = 0;
+            int xpearned = 0;
             Console.WriteLine($"Player health is at {p.health} out of {p.maxhealth}");
             for (int m = 0; m < mobs.Length; m++) {
                 Console.WriteLine($"Mob {m + 1} health: {mobs[m].health}");
@@ -81,6 +82,7 @@ namespace Combat_and_Catacombs {
                                         if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
                                             mobs[targetinput - 1].dead = true;
                                             Console.WriteLine($"The attack killed Mob {targetinput}!");
+                                            xpearned += mobs[targetinput - 1].xpreward;
                                         }
                                     } else {
                                         Console.WriteLine($"Mob {targetinput} dodged the attack!");
@@ -116,6 +118,7 @@ namespace Combat_and_Catacombs {
                                     if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
                                         mobs[targetinput - 1].dead = true;
                                         Console.WriteLine($"The attack killed Mob {targetinput}!");
+                                        xpearned += mobs[targetinput - 1].xpreward;
                                     }
                                     darkcooldown = 3;
                                     break;
@@ -126,8 +129,12 @@ namespace Combat_and_Catacombs {
                                 if (mobs[f - 1].dead == false) {
                                     int mdamage = (mobs[f - 1].damage - p.resistance);
                                     Console.WriteLine($"Mob {f}'s turn");
-                                    Console.WriteLine($"Mob {f} attacked the player for {mdamage} damage!");
-                                    p.health -= mdamage;
+                                    if (mdamage <= 0) {
+                                        Console.WriteLine("The Player fully resisted the attack!");
+                                    } else {
+                                        p.health -= mdamage;
+                                        Console.WriteLine($"Mob {f} attacked the player for {mdamage} damage!");
+                                    }
                                 }
                             } else {
                                 Console.WriteLine($"The player dodged mob {f}'s attack!");
@@ -168,6 +175,7 @@ namespace Combat_and_Catacombs {
                 playerdead_win = new bool[] { playerdead, win };
                 MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared = true;
             }
+            return xpearned;
         }
     }
 }

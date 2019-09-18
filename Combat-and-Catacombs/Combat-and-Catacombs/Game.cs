@@ -9,6 +9,9 @@ namespace Combat_and_Catacombs {
             p = new Player() {
                 roomPosition = new Vector2(5, 5),
                 areaPosition = 1,
+                level = 1,
+                xp = 0,
+                levelthresholds = new int[] {10,50,125,340,760,1400,2750,4230,7640,10000}, //make stuff happen when thresholds reached now
                 maxhealth = 999999,
                 health = 999999,
                 damage = 8,
@@ -33,6 +36,9 @@ namespace Combat_and_Catacombs {
 
 
             while (!quitting) {
+                if (p.xp >= p.levelthresholds[p.level - 1]) {
+                    p.LevelUp();
+                }
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 Console.WriteLine();
                 CommandParser.Parse(input, p);

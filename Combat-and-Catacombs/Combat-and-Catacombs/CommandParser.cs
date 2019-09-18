@@ -40,7 +40,7 @@ namespace Combat_and_Catacombs {
                     break;
                 case "p":
                     if (MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
-                        Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+                        p.xp += Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
                     } else {
                         displayPos = false;
                     }
@@ -62,6 +62,10 @@ namespace Combat_and_Catacombs {
                 case "c":
                     p.inventory.EnterInventoryMenu();
                     break;
+                case "x":
+                    p.ShowStats();
+                    displayPos = false;
+                    break;
                 default:
                     Console.WriteLine("Move (NSEW), Engage in Combat (P), Open Inventory (C), Exit (X)");
                     displayPos = false;
@@ -71,7 +75,9 @@ namespace Combat_and_Catacombs {
                 MapDrawer.PrintMap(p.roomPosition);
                 Room.DisplayRoomInformation(MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1]);
             }
-
+            if (MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
+                p.xp += Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+            }
             return keyPressed.ToLower() == "x";
         }
 
