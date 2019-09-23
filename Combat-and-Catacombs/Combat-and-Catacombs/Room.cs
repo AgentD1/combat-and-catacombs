@@ -409,7 +409,7 @@ namespace Combat_and_Catacombs {
             for (int m = 0; m < mobtypeinstance.packsize; m++) {
                 returnmobs[m] = (Mob)Activator.CreateInstance(mobtypeinstance.GetType());
                 returnmobs[m].health += rand.Next(returnmobs[m].healthrange + 1);
-                returnmobs[m].damage += rand.Next(returnmobs[m].damagerange + 1);
+                returnmobs[m].damage += rand.Next(returnmobs[m].basedamagerange + 1);
             }
             return returnmobs;
         }

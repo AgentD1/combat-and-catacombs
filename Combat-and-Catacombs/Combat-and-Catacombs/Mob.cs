@@ -11,6 +11,7 @@ namespace Combat_and_Catacombs {
         public int packsize;
         public int packsizerange;
         public int damage;
+        public int basedamagerange;
         public int damagerange;
         public int agility;
         public int resistance;
@@ -23,7 +24,7 @@ namespace Combat_and_Catacombs {
             return name;
         }
     }
-
+    #region Area1
     class Goblin : Mob {
         public Goblin() : base() {
             health = 9;
@@ -31,7 +32,8 @@ namespace Combat_and_Catacombs {
             packsize = 2;
             packsizerange = 1;
             damage = 1;
-            damagerange = 1;
+            basedamagerange = 1;
+            damagerange = 2;
             agility = 1;
             resistance = 1;
             xpreward = 2;
@@ -45,7 +47,8 @@ namespace Combat_and_Catacombs {
             packsize = 1;
             packsizerange = 1;
             damage = 2;
-            damagerange = 2;
+            basedamagerange = 2;
+            damagerange = 3;
             agility = 1;
             resistance = 1;
             xpreward = 3;
@@ -59,6 +62,7 @@ namespace Combat_and_Catacombs {
             packsize = 4;
             packsizerange = 2;
             damage = 3;
+            basedamagerange = 1;
             damagerange = 1;
             agility = 1;
             resistance = 1;
@@ -73,7 +77,8 @@ namespace Combat_and_Catacombs {
             packsize = 3;
             packsizerange = 1;
             damage = 4;
-            damagerange = 1;
+            basedamagerange = 1;
+            damagerange = 2;
             agility = 1;
             resistance = 1;
             xpreward = 2;
@@ -87,7 +92,8 @@ namespace Combat_and_Catacombs {
             packsize = 1;
             packsizerange = 0;
             damage = 5;
-            damagerange = 3;
+            basedamagerange = 3;
+            damagerange = 4;
             agility = 1;
             resistance = 1;
             xpreward = 5;
@@ -101,6 +107,7 @@ namespace Combat_and_Catacombs {
             packsize = 1;
             packsizerange = 2;
             damage = 6;
+            basedamagerange = 2;
             damagerange = 2;
             agility = 1;
             resistance = 1;
@@ -115,7 +122,8 @@ namespace Combat_and_Catacombs {
             packsize = 1;
             packsizerange = 1;
             damage = 7;
-            damagerange = 1;
+            basedamagerange = 1;
+            damagerange = 2;
             agility = 1;
             resistance = 1;
             xpreward = 3;
@@ -129,7 +137,8 @@ namespace Combat_and_Catacombs {
             packsize = 2;
             packsizerange = 2;
             damage = 8;
-            damagerange = 1;
+            basedamagerange = 1;
+            damagerange = 3;
             agility = 1;
             resistance = 1;
             xpreward = 4;
@@ -143,7 +152,8 @@ namespace Combat_and_Catacombs {
             packsize = 1;
             packsizerange = 0;
             damage = 9;
-            damagerange = 3;
+            basedamagerange = 3;
+            damagerange = 5;
             agility = 1;
             resistance = 1;
             xpreward = 6;
@@ -157,6 +167,7 @@ namespace Combat_and_Catacombs {
             packsize = 3;
             packsizerange = 2;
             damage = 10;
+            basedamagerange = 2;
             damagerange = 2;
             agility = 1;
             resistance = 1;
@@ -164,4 +175,5 @@ namespace Combat_and_Catacombs {
             name = "Bandit";
         }
     }
+    #endregion
 }

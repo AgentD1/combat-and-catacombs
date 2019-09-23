@@ -14,6 +14,7 @@ namespace Combat_and_Catacombs {
         public int maxhealth;
         public int health;
         public int damage;
+        public int damagerange;
         public int agility;
         public int resistance;
         public int lightmana;
@@ -37,7 +38,7 @@ namespace Combat_and_Catacombs {
             Console.WriteLine($"XP: {this.xp}");
             Console.WriteLine($"XP needed to level up: {this.levelthresholds[level - 1] - this.xp}");
             Console.WriteLine($"Health: {this.health}/{this.maxhealth}");
-            Console.WriteLine($"Damage: {this.damage}");
+            Console.WriteLine($"Damage: {this.damage}-{this.damage + this.damagerange}");
             Console.WriteLine($"Agility: {this.agility}");
             Console.WriteLine($"Resistance: {this.resistance}");
             Console.WriteLine($"Lightmana: {this.lightmana}");

@@ -15,8 +15,9 @@ namespace Combat_and_Catacombs {
                 maxhealth = 999999,
                 health = 999999,
                 damage = 8,
+                damagerange = 3,
                 agility = 2,
-                resistance = 2,
+                resistance = 0,
                 lightmana = 10,
                 darkmana = 10,
                 inventory = new Inventory(30, p)

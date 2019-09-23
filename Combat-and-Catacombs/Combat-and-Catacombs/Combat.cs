@@ -51,7 +51,6 @@ namespace Combat_and_Catacombs {
                                     }
                                     break;
                                 } catch (FormatException) {
-                                    Console.WriteLine("Press a number");
                                     continue;
                                 }
                             }
@@ -72,7 +71,7 @@ namespace Combat_and_Catacombs {
                                         }
                                     }
                                     if (Game.r.Next(1,100) > mobs[targetinput-1].agility) {
-                                        int pdamage = (p.damage - mobs[targetinput - 1].resistance);
+                                        int pdamage = (p.damage + Game.r.Next(p.damagerange) - mobs[targetinput - 1].resistance);
                                         if (pdamage <= 0) {
                                             Console.WriteLine($"Mob {targetinput} fully resisted the attack!");
                                         } else {
@@ -123,12 +122,14 @@ namespace Combat_and_Catacombs {
                                     darkcooldown = 3;
                                     break;
                             }
+                            Console.WriteLine();
                             break;
                         default:
                             if (Game.r.Next(1,100) > p.agility) {
                                 if (mobs[f - 1].dead == false) {
-                                    int mdamage = (mobs[f - 1].damage - p.resistance);
+                                    int mdamage = (mobs[f - 1].damage + Game.r.Next(mobs[f - 1].damagerange) - p.resistance);
                                     Console.WriteLine($"Mob {f}'s turn");
+                                    Console.WriteLine(mobs[f - 1].damage);
                                     if (mdamage <= 0) {
                                         Console.WriteLine("The Player fully resisted the attack!");
                                     } else {
