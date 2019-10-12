@@ -34,11 +34,17 @@ namespace Combat_and_Catacombs {
                 Console.WriteLine("There are no mobs in this room");
             }
             Console.WriteLine();
-
+            /*
+             * 
+             * The xp displayed -16 needed, lvl 2 at 66 xp... weird
+             * 
+             * 
+             */
 
             while (!quitting) {
-                if (p.xp >= p.levelthresholds[p.level - 1]) {
+                while (p.xp >= p.levelthresholds[p.level - 1]) {
                     p.LevelUp();
+                    Console.WriteLine("Leveled!");
                 }
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 Console.WriteLine();

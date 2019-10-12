@@ -200,6 +200,24 @@ namespace Combat_and_Catacombs {
             return 'L';
         }
     }
+    //Mini Boss - Giant Room
+    public class GiantLair : Room {
+        public string name;
+        public GiantLair() : base() {
+            this.name = "Giant's lair";
+            this.mobs = new Mob[] {(Mob)Activator.CreateInstance(typeof(Giant))};
+            this.mobscleared = false;
+        }
+        public override string givename() {
+            return name;
+        }
+        public override string describe() {
+            return "uh oh. He's a big one...";
+        }
+        public override char renderChar() {
+            return '-';
+        }
+    }
     #endregion
 
     #region Area2

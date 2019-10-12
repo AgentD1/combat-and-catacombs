@@ -22,16 +22,14 @@ namespace Combat_and_Catacombs {
         public bool dead;
         public Inventory inventory;
         public void LevelUp() {
-            if (this.level == 1) {
-                this.maxhealth += 50;
-                this.health += 50;
-                this.damage += 5;
-                this.agility += 1;
-                this.resistance += 2;
-                this.lightmana += 5;
-                this.darkmana += 5;
-                this.level += 1;
-            }
+            this.maxhealth += 50;
+            this.health += 50;
+            this.damage += 5;
+            this.agility += 1;
+            this.resistance += 2;
+            this.lightmana += 5;
+            this.darkmana += 5;
+            this.level += 1;
         }
         public void ShowStats() {
             Console.WriteLine($"Level {this.level}");

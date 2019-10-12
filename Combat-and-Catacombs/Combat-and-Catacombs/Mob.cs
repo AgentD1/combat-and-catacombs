@@ -175,5 +175,20 @@ namespace Combat_and_Catacombs {
             name = "Bandit";
         }
     }
+    class Giant : Mob {
+        public Giant() : base() {
+            health = 100;
+            healthrange = 30;
+            packsize = 1;
+            packsizerange = 0;
+            damage = 17;
+            basedamagerange = 5;
+            damagerange = 9;
+            agility = 5;
+            resistance = 6;
+            xpreward = 40;
+            name = "Black Sludgii";
+        }
+    }
     #endregion
 }

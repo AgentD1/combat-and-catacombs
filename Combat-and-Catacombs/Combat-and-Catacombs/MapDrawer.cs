@@ -38,6 +38,7 @@ namespace Combat_and_Catacombs {
                 }
                 rooms[a, 4, 4] = new Haven();
                 rooms[a, 4, 4].mobscleared = true;
+                rooms[a,Game.r.Next(8),Game.r.Next(8)] = new GiantLair();
             }
         }
 
