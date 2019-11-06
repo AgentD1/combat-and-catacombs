@@ -20,17 +20,17 @@ namespace Combat_and_Catacombs {
                         switch (a) {
                             case 0:
                                 rooms[a, x, y] = (Room)Activator.CreateInstance(AreaTables.area1roomtable.PickRandomly());
-                                rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobs = AreaTables.CreateMobs(AreaTables.area1mobtable.PickRandomly());
                                 rooms[a, x, y].mobscleared = false;
                                 break;
                             case 1:
                                 rooms[a, x, y] = (Room)Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
-                                rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobs = AreaTables.CreateMobs(AreaTables.area1mobtable.PickRandomly());
                                 rooms[a, x, y].mobscleared = false;
                                 break;
                             default:
                                 rooms[a, x, y] = (Room)Activator.CreateInstance(AreaTables.area2roomtable.PickRandomly());
-                                rooms[a, x, y].mobs = AreaTables.GetRandomMobs();
+                                rooms[a, x, y].mobs = AreaTables.CreateMobs(AreaTables.area1mobtable.PickRandomly());
                                 rooms[a, x, y].mobscleared = false;
                                 break;
                         }
@@ -38,7 +38,18 @@ namespace Combat_and_Catacombs {
                 }
                 rooms[a, 4, 4] = new Haven();
                 rooms[a, 4, 4].mobscleared = true;
-                rooms[a,Game.r.Next(8),Game.r.Next(8)] = new GiantLair();
+                int[] GiantLairPos  = {Game.r.Next(8),Game.r.Next(8)};
+                while ((rooms[a,GiantLairPos[0],GiantLairPos[1]] is Haven) || (rooms[a,GiantLairPos[0],GiantLairPos[1]] is CryptGate)) {
+                    GiantLairPos[0]  = Game.r.Next(8);
+                    GiantLairPos[1]  = Game.r.Next(8);
+                }
+                rooms[a,GiantLairPos[0],GiantLairPos[1]] = new GiantLair();
+                int[] CryptGatePos  = {Game.r.Next(8),Game.r.Next(8)};
+                while ((rooms[a,CryptGatePos[0],CryptGatePos[1]] is Haven) || (rooms[a,CryptGatePos[0],CryptGatePos[1]] is GiantLair)) {
+                    CryptGatePos[0]  = Game.r.Next(8);
+                    CryptGatePos[1]  = Game.r.Next(8);
+                }
+                rooms[a,CryptGatePos[0],CryptGatePos[1]] = new CryptGate();
             }
         }
 

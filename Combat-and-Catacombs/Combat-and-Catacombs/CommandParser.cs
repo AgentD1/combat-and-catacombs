@@ -71,9 +71,6 @@ namespace Combat_and_Catacombs {
                     p.ShowStats();
                     displayInfo = false;
                     break;
-                case "t":
-                    p.xp += 125;
-                    break;
                 default:
                     Console.WriteLine("Move (NSEW), Engage in Combat (P), Open Inventory (C), Exit (X)");
                     displayInfo = false;

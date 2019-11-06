@@ -11,7 +11,7 @@ namespace Combat_and_Catacombs {
                 areaPosition = 1,
                 level = 1,
                 xp = 0,
-                levelthresholds = new int[] {10,50,125,340,760,1400,2750,4230,7640,10000}, //make stuff happen when thresholds reached now
+                levelthresholds = new int[] {10,50,125,340,760,1400,2750,4230,7640,10000},
                 maxhealth = 999999,
                 health = 999999,
                 damage = 8,
@@ -34,12 +34,6 @@ namespace Combat_and_Catacombs {
                 Console.WriteLine("There are no mobs in this room");
             }
             Console.WriteLine();
-            /*
-             * 
-             * The xp displayed -16 needed, lvl 2 at 66 xp... weird
-             * 
-             * 
-             */
 
             while (!quitting) {
                 while (p.xp >= p.levelthresholds[p.level - 1]) {
