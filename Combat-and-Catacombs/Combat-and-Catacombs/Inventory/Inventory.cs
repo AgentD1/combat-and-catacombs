@@ -41,7 +41,15 @@ namespace Combat_and_Catacombs {
                 if(items[i] == null || items[i].number == 0 || items[i].item == null) {
                     Console.WriteLine();
                 } else {
+                    string[,] table = new string[items.Length + 1, 3];
+                    string[] finalCopy = new string[items.Length + 1];
+                    table[0, 0] = "No#";
+                    table[0, 1] = "Name";
+                    table[0, 2] = "Description";
+                    
+                    for (int i = 0; i < length; i++) {
 
+                    }
                 }
             }
         }
