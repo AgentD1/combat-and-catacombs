@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomTable.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RoomModifer.cs" />
     <Compile Include="Utility\GM.cs" />
     <Compile Include="Utility\TableMaker.cs" />
     <Compile Include="Vector2.cs" />

@@ -11,12 +11,13 @@ namespace Combat_and_Catacombs {
                 areaPosition = 1,
                 level = 1,
                 xp = 0,
-                levelthresholds = new int[] {10,50,125,340,760,1400,2750,4230,7640,10000}, //make stuff happen when thresholds reached now
+                levelthresholds = new int[] {10,50,125,340,760,1400,2750,4230,7640,10000},
                 maxhealth = 999999,
                 health = 999999,
                 damage = 8,
+                damagerange = 3,
                 agility = 2,
-                resistance = 2,
+                resistance = 0,
                 lightmana = 10,
                 darkmana = 10,
                 inventory = new Inventory(30, p)
@@ -34,10 +35,10 @@ namespace Combat_and_Catacombs {
             }
             Console.WriteLine();
 
-
             while (!quitting) {
-                if (p.xp >= p.levelthresholds[p.level - 1]) {
+                while (p.xp >= p.levelthresholds[p.level - 1]) {
                     p.LevelUp();
+                    Console.WriteLine("Leveled!");
                 }
                 string input = Console.ReadKey(true).Key.ToString().ToLower();
                 Console.WriteLine();

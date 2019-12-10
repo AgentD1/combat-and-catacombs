@@ -200,6 +200,42 @@ namespace Combat_and_Catacombs {
             return 'L';
         }
     }
+    //Mini Boss - Giant Room
+    public class GiantLair : Room {
+        public string name;
+        public GiantLair() : base() {
+            this.name = "Giant's lair";
+            this.mobs = AreaTables.CreateMobs(typeof(Giant));
+            this.mobscleared = false;
+        }
+        public override string givename() {
+            return name;
+        }
+        public override string describe() {
+            return "uh oh. He's a big one...";
+        }
+        public override char renderChar() {
+            return '-';
+        }
+    }
+    //Mini Boss - UndeadDangonlings Room
+    public class CryptGate : Room {
+        public string name;
+        public CryptGate() : base() {
+            this.name = "Crypt Gate";
+            this.mobs = AreaTables.CreateMobs(typeof(UndeadDragonlings));
+            this.mobscleared = false;
+        }
+        public override string givename() {
+            return name;
+        }
+        public override string describe() {
+            return "A gate that seemed to have been once guarded by a large creature. Wait, what is that sou-";
+        }
+        public override char renderChar() {
+            return '-';
+        }
+    }
     #endregion
 
     #region Area2
@@ -402,14 +438,14 @@ namespace Combat_and_Catacombs {
         public static RandomTable<Type> area1mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         public static Random rand = new Random();
 
-        public static Mob[] GetRandomMobs() {
-            Mob mobtypeinstance = (Mob)Activator.CreateInstance(area1mobtable.PickRandomly());
+        public static Mob[] CreateMobs(Type mobtype) {
+            Mob mobtypeinstance = (Mob)Activator.CreateInstance(mobtype);
             mobtypeinstance.packsize += rand.Next(mobtypeinstance.packsizerange + 1);
             Mob[] returnmobs = new Mob[mobtypeinstance.packsize];
             for (int m = 0; m < mobtypeinstance.packsize; m++) {
                 returnmobs[m] = (Mob)Activator.CreateInstance(mobtypeinstance.GetType());
                 returnmobs[m].health += rand.Next(returnmobs[m].healthrange + 1);
-                returnmobs[m].damage += rand.Next(returnmobs[m].damagerange + 1);
+                returnmobs[m].damage += rand.Next(returnmobs[m].basedamagerange + 1);
             }
             return returnmobs;
         }
