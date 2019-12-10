@@ -76,18 +76,18 @@ namespace Combat_and_Catacombs {
                     displayInfo = false;
                     break;
             }
-            if(displayInfo) {
+            if (displayInfo) {
                 Room.DisplayRoomInformation(MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1]);
             }
             if (displayPos) {
-                    MapDrawer.PrintMap(p.roomPosition);
-                }
+                MapDrawer.PrintMap(p.roomPosition);
+            }
             if (MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
                 p.xp += Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
             }
             return keyPressed.ToLower() == "x";
         }
 
-        
+
     }
 }

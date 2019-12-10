@@ -40,6 +40,7 @@ namespace Combat_and_Catacombs {
             Console.WriteLine();
             Console.WriteLine($"Inventory Page {pageNumber}/{Math.Ceiling(items.Length / 10d)}");
             Console.WriteLine();
+
             string[] finalCopy = new string[items.Length + 1];
 
             string[][] table = new string[items.Length + 1][];

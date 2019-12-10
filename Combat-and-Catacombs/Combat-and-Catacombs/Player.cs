@@ -9,38 +9,38 @@ namespace Combat_and_Catacombs {
         public Vector2 roomPosition;
         public int level;
         public int xp;
-        public int[] levelthresholds;
+        public int[] levelThresholds;
         public int areaPosition;
-        public int maxhealth;
+        public int maxHealth;
         public int health;
         public int damage;
-        public int damagerange;
+        public int damageRange;
         public int agility;
         public int resistance;
-        public int lightmana;
-        public int darkmana;
+        public int lightMana;
+        public int darkMana;
         public bool dead;
         public Inventory inventory;
         public void LevelUp() {
-            this.maxhealth += 50;
-            this.health += 50;
-            this.damage += 5;
-            this.agility += 1;
-            this.resistance += 2;
-            this.lightmana += 5;
-            this.darkmana += 5;
-            this.level += 1;
+            maxHealth += 50;
+            health += 50;
+            damage += 5;
+            agility += 1;
+            resistance += 2;
+            lightMana += 5;
+            darkMana += 5;
+            level += 1;
         }
         public void ShowStats() {
-            Console.WriteLine($"Level {this.level}");
-            Console.WriteLine($"XP: {this.xp}");
-            Console.WriteLine($"XP needed to level up: {this.levelthresholds[level - 1] - this.xp}");
-            Console.WriteLine($"Health: {this.health}/{this.maxhealth}");
-            Console.WriteLine($"Damage: {this.damage}-{this.damage + this.damagerange}");
-            Console.WriteLine($"Agility: {this.agility}");
-            Console.WriteLine($"Resistance: {this.resistance}");
-            Console.WriteLine($"Lightmana: {this.lightmana}");
-            Console.WriteLine($"Darkmana: {this.darkmana}");
+            Console.WriteLine($"Level {level}");
+            Console.WriteLine($"XP: {xp}");
+            Console.WriteLine($"XP needed to level up: {levelThresholds[level - 1] - xp}");
+            Console.WriteLine($"Health: {health}/{maxHealth}");
+            Console.WriteLine($"Damage: {damage}-{damage + damageRange}");
+            Console.WriteLine($"Agility: {agility}");
+            Console.WriteLine($"Resistance: {resistance}");
+            Console.WriteLine($"Lightmana: {lightMana}");
+            Console.WriteLine($"Darkmana: {darkMana}");
         }
     }
 }
