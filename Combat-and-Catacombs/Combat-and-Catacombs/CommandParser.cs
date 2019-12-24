@@ -77,7 +77,7 @@ namespace Combat_and_Catacombs {
                     break;
             }
             if (displayInfo) {
-                Room.DisplayRoomInformation(Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1]);
+                Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].DisplayRoomInformation();
             }
             if (displayPos) {
                 Game.mapDrawer.PrintMap(p.roomPosition);

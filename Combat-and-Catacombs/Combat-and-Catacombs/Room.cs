@@ -14,11 +14,11 @@ namespace Combat_and_Catacombs {
         public abstract string describe();
         public abstract char renderChar();
 
-        public static void DisplayRoomInformation(Room room) {
-            Console.WriteLine(room.givename());
-            Console.WriteLine(room.describe());
-            if (room.mobscleared == false) {
-                Console.WriteLine($"You meet {room.mobs.Length} {room.mobs[0].givename()}");
+        public void DisplayRoomInformation() {
+            Console.WriteLine(givename());
+            Console.WriteLine(describe());
+            if (mobscleared == false) {
+                Console.WriteLine($"You meet {mobs.Length} {mobs[0].givename()}");
             } else {
                 Console.WriteLine("There are no mobs in this room");
             }
