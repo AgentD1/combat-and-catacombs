@@ -40,8 +40,8 @@ namespace Combat_and_Catacombs {
                     }
                     break;
                 case "p":
-                    if (MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
-                        p.xp += Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+                    if (Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
+                        p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
                     } else {
                         displayInfo = false;
                     }
@@ -77,13 +77,13 @@ namespace Combat_and_Catacombs {
                     break;
             }
             if(displayInfo) {
-                Room.DisplayRoomInformation(MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1]);
+                Room.DisplayRoomInformation(Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1]);
             }
             if (displayPos) {
-                    MapDrawer.PrintMap(p.roomPosition);
+                    Game.mapDrawer.PrintMap(p.roomPosition);
                 }
-            if (MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
-                p.xp += Combat.EngageCombat(p, MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+            if (Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
+                p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
             }
             return keyPressed.ToLower() == "x";
         }

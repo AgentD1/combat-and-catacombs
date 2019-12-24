@@ -5,6 +5,8 @@ namespace Combat_and_Catacombs {
     static class Game {
         public static Random r = new Random();
         public static Player p;
+        public static MapDrawer mapDrawer;
+
         static void Main(string[] args) {
             p = new Player() {
                 roomPosition = new Vector2(5, 5),
@@ -24,8 +26,12 @@ namespace Combat_and_Catacombs {
             };
             bool quitting = false;
 
-            MapDrawer.PrintMap(p.roomPosition);
-            Room myRoom = MapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1];
+            mapDrawer = new MapDrawer();
+
+            mapDrawer.PrintMap(p.roomPosition);
+
+
+            Room myRoom = mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1];
             Console.WriteLine(myRoom.givename());
             Console.WriteLine(myRoom.describe());
             if (myRoom.mobscleared == false) {

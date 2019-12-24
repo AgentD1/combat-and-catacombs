@@ -200,8 +200,18 @@ namespace Combat_and_Catacombs {
             return 'L';
         }
     }
+
+    public abstract class BossRoom : Room {
+        public BossRoom() : base() {
+        }                                   
+
+        public override char renderChar() {
+            return '-';
+        }
+    }
+
     //Mini Boss - Giant Room
-    public class GiantLair : Room {
+    public class GiantLair : BossRoom {
         public string name;
         public GiantLair() : base() {
             this.name = "Giant's lair";
@@ -214,12 +224,9 @@ namespace Combat_and_Catacombs {
         public override string describe() {
             return "uh oh. He's a big one...";
         }
-        public override char renderChar() {
-            return '-';
-        }
     }
     //Mini Boss - UndeadDangonlings Room
-    public class CryptGate : Room {
+    public class CryptGate : BossRoom {
         public string name;
         public CryptGate() : base() {
             this.name = "Crypt Gate";
@@ -231,9 +238,6 @@ namespace Combat_and_Catacombs {
         }
         public override string describe() {
             return "A gate that seemed to have been once guarded by a large creature. Wait, what is that sou-";
-        }
-        public override char renderChar() {
-            return '-';
         }
     }
     #endregion
