@@ -12,19 +12,19 @@ namespace Combat_and_Catacombs {
 
         public static int EngageCombat(Player p, Mob[] mobs) {
             bool win = false;
-            bool playerdead = false;
-            int actionchoice;
-            int targetinput;
+            bool playerDead = false;
+            int actionChoice;
+            int targetInput;
             int round = 1;
-            int lightcooldown = 0;
-            int darkcooldown = 0;
-            int xpearned = 0;
-            Console.WriteLine($"Player health is at {p.health} out of {p.maxhealth}");
+            int lightCooldown = 0;
+            int darkCooldown = 0;
+            int xpEarned = 0;
+            Console.WriteLine($"Player health is at {p.health} out of {p.maxHealth}");
             for (int m = 0; m < mobs.Length; m++) {
                 Console.WriteLine($"Mob {m + 1} health: {mobs[m].health}");
             }
             Console.WriteLine();
-            while (win == false && playerdead == false) {
+            while (win == false && playerDead == false) {
 
                 Console.WriteLine($"round {round}");
 
@@ -38,15 +38,15 @@ namespace Combat_and_Catacombs {
                             while (true) {
                                 try {
                                     Console.WriteLine("Which action will you take?");
-                                    actionchoice = Convert.ToInt32(Console.ReadKey(true).Key) - 48;
-                                    if (actionchoice < 1 | actionchoice > 3) {
+                                    actionChoice = Convert.ToInt32(Console.ReadKey(true).Key) - 48;
+                                    if (actionChoice < 1 | actionChoice > 3) {
                                         Console.WriteLine("Press a number corresponding to an action");
                                         continue;
-                                    } else if (actionchoice == 2 & lightcooldown > 0) {
-                                        Console.WriteLine($"{lightcooldown} rounds until light magic is available");
+                                    } else if (actionChoice == 2 & lightCooldown > 0) {
+                                        Console.WriteLine($"{lightCooldown} rounds until light magic is available");
                                         continue;
-                                    } else if (actionchoice == 3 & darkcooldown > 0) {
-                                        Console.WriteLine($"{darkcooldown} rounds until dark magic is available");
+                                    } else if (actionChoice == 3 & darkCooldown > 0) {
+                                        Console.WriteLine($"{darkCooldown} rounds until dark magic is available");
                                         continue;
                                     }
                                     break;
@@ -54,13 +54,13 @@ namespace Combat_and_Catacombs {
                                     continue;
                                 }
                             }
-                            switch (actionchoice) {
+                            switch (actionChoice) {
                                 case 1:
                                     while (true) {
                                         try {
                                             Console.WriteLine("Which mob would you like to attack?");
-                                            targetinput = Convert.ToInt32(Console.ReadLine());
-                                            if (targetinput < 1 | targetinput > mobs.Length) {
+                                            targetInput = Convert.ToInt32(Console.ReadLine());
+                                            if (targetInput < 1 | targetInput > mobs.Length) {
                                                 Console.WriteLine("Press a number corresponding to a living or dead enemy");
                                                 continue;
                                             }
@@ -70,39 +70,39 @@ namespace Combat_and_Catacombs {
                                             continue;
                                         }
                                     }
-                                    if (Game.r.Next(1,100) > mobs[targetinput-1].agility) {
-                                        int pdamage = (p.damage + Game.r.Next(p.damagerange) - mobs[targetinput - 1].resistance);
+                                    if (Game.r.Next(1, 100) > mobs[targetInput - 1].agility) {
+                                        int pdamage = (p.damage + Game.r.Next(p.damageRange) - mobs[targetInput - 1].resistance);
                                         if (pdamage <= 0) {
-                                            Console.WriteLine($"Mob {targetinput} fully resisted the attack!");
+                                            Console.WriteLine($"Mob {targetInput} fully resisted the attack!");
                                         } else {
-                                            mobs[targetinput - 1].health -= pdamage;
-                                            Console.WriteLine($"Player attacked Mob {targetinput} for {pdamage} damage!");
+                                            mobs[targetInput - 1].health -= pdamage;
+                                            Console.WriteLine($"Player attacked Mob {targetInput} for {pdamage} damage!");
                                         }
-                                        if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
-                                            mobs[targetinput - 1].dead = true;
-                                            Console.WriteLine($"The attack killed Mob {targetinput}!");
-                                            xpearned += mobs[targetinput - 1].xpreward;
+                                        if (mobs[targetInput - 1].health < 1 && mobs[targetInput - 1].dead == false) {
+                                            mobs[targetInput - 1].dead = true;
+                                            Console.WriteLine($"The attack killed Mob {targetInput}!");
+                                            xpEarned += mobs[targetInput - 1].xpreward;
                                         }
                                     } else {
-                                        Console.WriteLine($"Mob {targetinput} dodged the attack!");
+                                        Console.WriteLine($"Mob {targetInput} dodged the attack!");
                                     }
                                     break;
                                 case 2:
-                                    p.health += p.lightmana;
-                                    if (p.health > p.maxhealth) {
-                                        p.health = p.maxhealth;
+                                    p.health += p.lightMana;
+                                    if (p.health > p.maxHealth) {
+                                        p.health = p.maxHealth;
                                         Console.WriteLine("You heal yourself to full health ");
                                     } else {
-                                        Console.WriteLine($"You heal {p.lightmana} health");
+                                        Console.WriteLine($"You heal {p.lightMana} health");
                                     }
-                                    lightcooldown = 3;
+                                    lightCooldown = 3;
                                     break;
                                 default:
                                     while (true) {
                                         try {
                                             Console.WriteLine("Which mob would you like to blast?");
-                                            targetinput = Convert.ToInt32(Console.ReadLine());
-                                            if (targetinput < 1 | targetinput > mobs.Length) {
+                                            targetInput = Convert.ToInt32(Console.ReadLine());
+                                            if (targetInput < 1 | targetInput > mobs.Length) {
                                                 Console.WriteLine("Press a number corresponding to a living or dead enemy");
                                                 continue;
                                             }
@@ -112,20 +112,20 @@ namespace Combat_and_Catacombs {
                                             continue;
                                         }
                                     }
-                                    mobs[targetinput - 1].health -= p.darkmana;
-                                    Console.WriteLine($"Player blasted Mob {targetinput} for {p.darkmana} damage!");
-                                    if (mobs[targetinput - 1].health < 1 && mobs[targetinput - 1].dead == false) {
-                                        mobs[targetinput - 1].dead = true;
-                                        Console.WriteLine($"The attack killed Mob {targetinput}!");
-                                        xpearned += mobs[targetinput - 1].xpreward;
+                                    mobs[targetInput - 1].health -= p.darkMana;
+                                    Console.WriteLine($"Player blasted Mob {targetInput} for {p.darkMana} damage!");
+                                    if (mobs[targetInput - 1].health < 1 && mobs[targetInput - 1].dead == false) {
+                                        mobs[targetInput - 1].dead = true;
+                                        Console.WriteLine($"The attack killed Mob {targetInput}!");
+                                        xpEarned += mobs[targetInput - 1].xpreward;
                                     }
-                                    darkcooldown = 3;
+                                    darkCooldown = 3;
                                     break;
                             }
                             Console.WriteLine();
                             break;
                         default:
-                            if (Game.r.Next(1,100) > p.agility) {
+                            if (Game.r.Next(1, 100) > p.agility) {
                                 if (mobs[f - 1].dead == false) {
                                     int mdamage = (mobs[f - 1].damage + Game.r.Next(mobs[f - 1].damagerange) - p.resistance);
                                     Console.WriteLine($"Mob {f}'s turn");
@@ -143,14 +143,14 @@ namespace Combat_and_Catacombs {
                             break;
                     }
                 }
-                lightcooldown -= 1;
-                darkcooldown -= 1;
+                lightCooldown -= 1;
+                darkCooldown -= 1;
                 if (p.health < 1) {
-                    playerdead = true;
+                    playerDead = true;
                     break;
                 }
                 Console.WriteLine();
-                Console.WriteLine($"Player health: {p.health} out of {p.maxhealth}");
+                Console.WriteLine($"Player health: {p.health} out of {p.maxHealth}");
                 win = true;
                 for (int m = 0; m < mobs.Length; m++) {
                     if (mobs[m].dead == true) {
@@ -164,19 +164,19 @@ namespace Combat_and_Catacombs {
                 round += 1;
                 Console.WriteLine();
             }
-            if (playerdead == true) {
+            if (playerDead == true) {
                 Console.WriteLine("You died");
-                playerdead_win = new bool[] { playerdead, win };
+                playerdead_win = new bool[] { playerDead, win };
                 p.roomPosition.x = 5;
                 p.roomPosition.y = 5;
-                p.health = p.maxhealth;
+                p.health = p.maxHealth;
             }
             if (win == true) {
                 Console.WriteLine("You defeated the mobs");
-                playerdead_win = new bool[] { playerdead, win };
+                playerdead_win = new bool[] { playerDead, win };
                 Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared = true;
             }
-            return xpearned;
+            return xpEarned;
         }
     }
 }

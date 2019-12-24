@@ -38,20 +38,20 @@ namespace Combat_and_Catacombs {
                 }
                 rooms[a, 4, 4] = new Haven();
                 rooms[a, 4, 4].mobscleared = true;
-                int[] GiantLairPos  = {Game.r.Next(rooms.GetLength(1)),Game.r.Next(rooms.GetLength(2))};
-                while ((rooms[a,GiantLairPos[0],GiantLairPos[1]] is Haven) || (rooms[a,GiantLairPos[0],GiantLairPos[1]] is CryptGate)) {
-                    GiantLairPos[0]  = Game.r.Next(rooms.GetLength(1));
-                    GiantLairPos[1]  = Game.r.Next(rooms.GetLength(2));
+                int[] GiantLairPos = {Game.r.Next(rooms.GetLength(1)),Game.r.Next(rooms.GetLength(2))};
+                while ((rooms[a, GiantLairPos[0], GiantLairPos[1]] is Haven) || (rooms[a, GiantLairPos[0], GiantLairPos[1]] is CryptGate)) {
+                    GiantLairPos[0] = Game.r.Next(rooms.GetLength(1));
+                    GiantLairPos[1] = Game.r.Next(rooms.GetLength(2));
                 }
                 rooms[a,GiantLairPos[0],GiantLairPos[1]] = new GiantLair();
-                int[] CryptGatePos  = {Game.r.Next(rooms.GetLength(1)),Game.r.Next(rooms.GetLength(2))};
-                while ((rooms[a,CryptGatePos[0],CryptGatePos[1]] is Haven) || (rooms[a,CryptGatePos[0],CryptGatePos[1]] is GiantLair)) {
-                    CryptGatePos[0]  = Game.r.Next(rooms.GetLength(1));
-                    CryptGatePos[1]  = Game.r.Next(rooms.GetLength(2));
+                int[] CryptGatePos = {Game.r.Next(rooms.GetLength(1)),Game.r.Next(rooms.GetLength(2))};
+                while ((rooms[a, CryptGatePos[0], CryptGatePos[1]] is Haven) || (rooms[a, CryptGatePos[0], CryptGatePos[1]] is GiantLair)) {
+                    CryptGatePos[0] = Game.r.Next(rooms.GetLength(1));
+                    CryptGatePos[1] = Game.r.Next(rooms.GetLength(2));
                 }
-                rooms[a,CryptGatePos[0],CryptGatePos[1]] = new CryptGate();
+                rooms[a, CryptGatePos[0], CryptGatePos[1]] = new CryptGate();
                 int[] HavenPos = {4,4};
-                int[][] specialRooms = {GiantLairPos,CryptGatePos};
+                int[][] specialRooms = {GiantLairPos, CryptGatePos};
                 PrintMap(Game.p.roomPosition);
                 //for (int r=0;r < 30;r++) {
                     MapNullMaker.createNullRoom(rooms, a, specialRooms);
