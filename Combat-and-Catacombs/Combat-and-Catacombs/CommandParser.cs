@@ -23,7 +23,7 @@ namespace Combat_and_Catacombs {
                     break;
                 case "k":
                 case "s":
-                    if (p.roomPosition.y != MapDrawer.MAP_HEIGHT) {
+                    if (p.roomPosition.y != MapDrawer.AREA_HEIGHT) {
                         p.roomPosition.y++;
                     }
                     break;
@@ -35,13 +35,13 @@ namespace Combat_and_Catacombs {
                     break;
                 case "l":
                 case "e":
-                    if (p.roomPosition.x != MapDrawer.MAP_WIDTH) {
+                    if (p.roomPosition.x != MapDrawer.AREA_WIDTH) {
                         p.roomPosition.x++;
                     }
                     break;
                 case "p":
-                    if (Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
-                        p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+                    if (Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
+                        p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
                     } else {
                         displayInfo = false;
                     }
@@ -77,13 +77,13 @@ namespace Combat_and_Catacombs {
                     break;
             }
             if (displayInfo) {
-                Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].DisplayRoomInformation();
+                Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].DisplayRoomInformation();
             }
             if (displayPos) {
                 Game.mapDrawer.PrintMap(p.roomPosition);
             }
-            if (Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
-                p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
+            if (Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared == false) {
+                p.xp += Combat.EngageCombat(p, Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].mobs);
             }
             return keyPressed.ToLower() == "x";
         }

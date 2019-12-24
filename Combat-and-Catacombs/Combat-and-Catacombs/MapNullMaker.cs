@@ -6,7 +6,7 @@ namespace Combat_and_Catacombs {
     {
         static HashSet<int> visited_rooms = new HashSet<int>();
 
-        public static bool createNullRoom(Room[,,] rooms, int area, int[][] specialRooms)
+        public static bool createNullRoom(Room[,] rooms, int[][] specialRooms)
         {
             bool okay = false;
             int trycount = 0;
@@ -17,7 +17,7 @@ namespace Combat_and_Catacombs {
                 candidateRoom[1] = Game.r.Next(9);
                 } while (candidateRoom == specialRooms[0] || candidateRoom == specialRooms[1] || candidateRoom == specialRooms[0]);
                 visited_rooms.Clear(); 
-                int[] roomsDim = {rooms.GetLength(1),rooms.GetLength(2)};
+                int[] roomsDim = {rooms.GetLength(0),rooms.GetLength(1)};
                 okay = test_access(roomsDim, candidateRoom, specialRooms);
                 trycount++;
                 if (trycount == 1) {
@@ -27,7 +27,7 @@ namespace Combat_and_Catacombs {
             }
             Console.WriteLine("Exited loop!");
             if (okay) {
-                rooms[area, candidateRoom[0], candidateRoom[1]] = null;
+                rooms[candidateRoom[0], candidateRoom[1]] = null;
                 Console.WriteLine("Nulled");
                 return(true);
             } else {
@@ -41,7 +41,7 @@ namespace Combat_and_Catacombs {
             for (int x = 0;x < roomsDim[0];x++) {
                 for (int y = 0;y < roomsDim[1];y++) {
                     int[] targetRoom = {x,y};
-                    bool okay = test_access_haven_to_room(roomsDim, targetRoom, candidateRoom, specialRooms);
+                    bool okay = test_access_haven_to_room(roomsDim, targetRoom, candidateRoom);
                     if (!(okay)) {
                         return(false);
                     }
@@ -51,7 +51,7 @@ namespace Combat_and_Catacombs {
             return(true);
         }
 
-        static bool test_access_haven_to_room(int[] roomsDim, int[] targetRoom, int[] candidateRoom, int[][] specialRooms) {
+        static bool test_access_haven_to_room(int[] roomsDim, int[] targetRoom, int[] candidateRoom) {
             if (visited_rooms.Contains(roomID(targetRoom))) {
                 Console.WriteLine($"Great news! We already visited {targetRoom[0].ToString()}, {targetRoom[1].ToString()}");
                 return(true);
@@ -80,6 +80,7 @@ namespace Combat_and_Catacombs {
                 Console.WriteLine("Null, or Wants to be, or boss");
                     return(false);
             }
+ 
             for (int i = 0;i<specialRooms.Length;i++) {
                 if (roomID(specialRooms[i]) == roomID(currentRoom)) {
                     Console.WriteLine("Null, or Wants to be, or boss");

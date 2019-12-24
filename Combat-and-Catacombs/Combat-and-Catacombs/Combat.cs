@@ -174,7 +174,7 @@ namespace Combat_and_Catacombs {
             if (win == true) {
                 Console.WriteLine("You defeated the mobs");
                 playerdead_win = new bool[] { playerDead, win };
-                Game.mapDrawer.rooms[p.areaPosition - 1, p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared = true;
+                Game.mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1].mobscleared = true;
             }
             return xpEarned;
         }
