@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Combat_and_Catacombs {
     public abstract class Room {
         public char mapRenderChar = 'O';
+        public int x;
+        public int y;
         public Room() { }
         public Mob[] mobs;
         public bool mobscleared;
@@ -436,6 +438,7 @@ namespace Combat_and_Catacombs {
     #endregion
 
     public class AreaTables {
+        #region arearoomtables
         static RandomTable<Type> area1roomtable = new RandomTable<Type>(new Type[] { typeof(OldCellar), typeof(HermitShack), typeof(Overgrowth), typeof(SmallCave), typeof(BurialMound), typeof(LargeAbandondedCrossroads), typeof(PillagedBarracks), typeof(FloodedRoom), typeof(GrassyEnclosure), typeof(RansackedLibrary) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area2roomtable = new RandomTable<Type>(new Type[] { typeof(Barracks), typeof(GuardsQuarters), typeof(SupplyRoom), typeof(Kitchen), typeof(MageRoom), typeof(CaptainOffice), typeof(ArcheryRange), typeof(AlchemistLab), typeof(Bathroom), typeof(PrisonCell) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area3roomtable = new RandomTable<Type>(new Type[] { typeof(Barracks), typeof(GuardsQuarters), typeof(SupplyRoom), typeof(Kitchen), typeof(MageRoom), typeof(CaptainOffice), typeof(ArcheryRange), typeof(AlchemistLab), typeof(Bathroom), typeof(PrisonCell) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
@@ -446,6 +449,8 @@ namespace Combat_and_Catacombs {
         static RandomTable<Type> area8roomtable = new RandomTable<Type>(new Type[] { typeof(Barracks), typeof(GuardsQuarters), typeof(SupplyRoom), typeof(Kitchen), typeof(MageRoom), typeof(CaptainOffice), typeof(ArcheryRange), typeof(AlchemistLab), typeof(Bathroom), typeof(PrisonCell) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area9roomtable = new RandomTable<Type>(new Type[] { typeof(Barracks), typeof(GuardsQuarters), typeof(SupplyRoom), typeof(Kitchen), typeof(MageRoom), typeof(CaptainOffice), typeof(ArcheryRange), typeof(AlchemistLab), typeof(Bathroom), typeof(PrisonCell) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         public static RandomTable<Type>[] roomtables = new RandomTable<Type>[] { area1roomtable, area2roomtable, area3roomtable, area4roomtable, area5roomtable, area6roomtable, area7roomtable, area8roomtable, area9roomtable };
+        #endregion
+        #region areamobtables
         static RandomTable<Type> area1mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area2mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area3mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
@@ -456,6 +461,7 @@ namespace Combat_and_Catacombs {
         static RandomTable<Type> area8mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         static RandomTable<Type> area9mobtable = new RandomTable<Type>(new Type[] { typeof(Goblin), typeof(CrazedMan), typeof(FaintApparition), typeof(Serpent), typeof(Troll), typeof(GiantSpider), typeof(Bloodhound), typeof(BlueSludgii), typeof(BlackSludgii), typeof(Bandit) }, new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         public static RandomTable<Type>[] mobtables = new RandomTable<Type>[] { area1mobtable, area2mobtable, area3mobtable, area4mobtable, area5mobtable, area6mobtable, area7mobtable, area8mobtable, area9mobtable };
+        #endregion
         static Random rand = new Random();
 
         public static Mob[] CreateMobs(Type mobtype) {

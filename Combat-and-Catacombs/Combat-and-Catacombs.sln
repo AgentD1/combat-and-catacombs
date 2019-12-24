@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combat-and-Catacombs", "Combat-and-Catacombs\Combat-and-Catacombs.csproj", "{4AAC7D8B-6D17-41EC-8BDA-A72A254E94EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combat-and-CatacombsTests", "Combat-and-CatacombsTests\Combat-and-CatacombsTests.csproj", "{297A9C73-089F-47C0-A311-5071704B6447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4AAC7D8B-6D17-41EC-8BDA-A72A254E94EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AAC7D8B-6D17-41EC-8BDA-A72A254E94EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AAC7D8B-6D17-41EC-8BDA-A72A254E94EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297A9C73-089F-47C0-A311-5071704B6447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297A9C73-089F-47C0-A311-5071704B6447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297A9C73-089F-47C0-A311-5071704B6447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297A9C73-089F-47C0-A311-5071704B6447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

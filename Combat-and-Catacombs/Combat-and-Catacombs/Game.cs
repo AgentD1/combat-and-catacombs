@@ -31,7 +31,7 @@ namespace Combat_and_Catacombs {
             mapDrawer.PrintMap(p.roomPosition);
 
 
-            Room myRoom = mapDrawer.rooms[p.areaPosition - 1].rooms[p.roomPosition.x - 1, p.roomPosition.y - 1];
+            Room myRoom = mapDrawer.rooms[p.areaPosition - 1].getRoom(p.roomPosition);
             Console.WriteLine(myRoom.givename());
             Console.WriteLine(myRoom.describe());
             if (myRoom.mobscleared == false) {

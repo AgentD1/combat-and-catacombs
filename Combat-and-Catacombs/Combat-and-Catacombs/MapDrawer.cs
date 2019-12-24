@@ -26,11 +26,11 @@ namespace Combat_and_Catacombs {
         public void PrintMap(Vector2 playerpos) {
             for (int y = 0; y < AREA_HEIGHT; y++) {
                 for (int x = 0; x < AREA_WIDTH; x++) {
-                    if (rooms[Game.p.areaPosition - 1].rooms[x, y] != null) {
+                    if (rooms[Game.p.areaPosition - 1].getRoom(x, y) != null) {
                         if (x == playerpos.x - 1 && y == playerpos.y - 1) {
-                            Console.Write($"({rooms[Game.p.areaPosition - 1].rooms[x, y].renderChar()})");
+                            Console.Write($"({rooms[Game.p.areaPosition - 1].getRoom(x, y).renderChar()})");
                         } else {
-                            Console.Write($" {rooms[Game.p.areaPosition - 1].rooms[x, y].renderChar()} ");
+                            Console.Write($" {rooms[Game.p.areaPosition - 1].getRoom(x, y).renderChar()} ");
                         }
                     } else {
                         if (x == playerpos.x - 1 && y == playerpos.y - 1) {
